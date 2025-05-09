@@ -5,54 +5,45 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 10f;
-    private bool isJumping = false;
-    [SerializeField] private Transform groundCheck; // Raycast 발사 지점
-    [SerializeField] private float groundCheckDistance = 0.1f; // Raycast 거리
-    [SerializeField] private LayerMask groundLayer; // 감지할 레이어
-
-    SpriteRenderer spriteRenderer;
-    private Vector2 moveInput;
+    [SerializeField] private LayerMask groundLayer;
 
     private Rigidbody2D _rigidbody2D;
-    public float moveSpeed = 5f;
+    private SpriteRenderer _spriterenderer;
 
-    void Awake()
+    private Vector2 moveValue;
+    public float moveSpeed = 5f;
+    public bool isJumping = false;
+    public float jumpForce = 5f;
+
+    private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriterenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        // 항상 수평 이동 입력 반영
-        _rigidbody2D.velocity = new Vector2(moveInput.x * moveSpeed, _rigidbody2D.velocity.y);
-
-        // Raycast를 사용하여 땅 감지
-        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, groundLayer);
-        isJumping = !hit; // Raycast가 충돌하지 않았으면 공중에 있다고 판단
-
-        // (디버깅용) Raycast 시각화
-        Debug.DrawRay(groundCheck.position, Vector2.down * groundCheckDistance, hit ? Color.green : Color.red);
+        _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
+    }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveValue = context.ReadValue<Vector2>();
     }
 
-    public void OnMove(InputValue value)
+    public void OnJump(InputAction.CallbackContext context)
     {
-        moveInput = value.Get<Vector2>();
-
-        if (moveInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (moveInput.x > 0) { spriteRenderer.flipX = false; }
-    }
-
-    public void OnJump(InputValue value)
-    {
-        if (value.isPressed && !isJumping)
+        if (context.performed && !isJumping)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);
             isJumping = true;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+        {
+            isJumping = false;
+        }
+        
     }
 }
