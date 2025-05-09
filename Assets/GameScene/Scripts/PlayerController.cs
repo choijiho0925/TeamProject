@@ -5,15 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundLayer; // Á¡ÇÁ¸¦ ÃÊ±âÈ­½ÃÅ³ ·¹ÀÌ¾î¸¦ °¡Áø °´Ã¼ ¼³Á¤
+    [SerializeField] private LayerMask groundLayer; // ì í”„ë¥¼ ì´ˆê¸°í™”ì‹œí‚¬ ë ˆì´ì–´ë¥¼ ê°€ì§„ ê°ì²´ ì„¤ì •
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriterenderer;
 
-    private Vector2 moveValue;  // ÀÌµ¿ °ª(°Å¸®)
-    public float moveSpeed = 5f;    // ÀÌµ¿ ¼Óµµ
-    public bool isJumping = false;  // Á¡ÇÁ ¿©ºÎ
-    public float jumpForce = 5f;    // Á¡ÇÁ·Â
+    private Vector2 moveValue;  // ì´ë™ ê°’(ê±°ë¦¬)
+    public float moveSpeed = 5f;    // ì´ë™ ì†ë„
+    public bool isJumping = false;  // ì í”„ ì—¬ë¶€
+    public float jumpForce = 5f;    // ì í”„ë ¥
 
     private void Awake()
     {
@@ -23,27 +23,27 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);  //¼öÆò ÀÌµ¿ Ã³¸®
+        _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);  //ìˆ˜í‰ ì´ë™ ì²˜ë¦¬
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveValue = context.ReadValue<Vector2>();   // ÁÂ¿ì ÀÌµ¿ ±¸Çö
+        moveValue = context.ReadValue<Vector2>();   // ì¢Œìš° ì´ë™ êµ¬í˜„
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && !isJumping)    // Áßº¹Á¡ÇÁ ¹æÁö
+        if (context.performed && !isJumping)    // ì¤‘ë³µì í”„ ë°©ì§€
         {
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);    // Á¡ÇÁ ±¸Çö
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);    // ì í”„ êµ¬í˜„
             isJumping = true;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0) // Ãæµ¹Ã¼ ·¹ÀÌ¾î¿¡ µû¶ó Á¡ÇÁ ¿©ºÎ ÃÊ±âÈ­
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0) // ì¶©ëŒì²´ ë ˆì´ì–´ì— ë”°ë¼ ì í”„ ì—¬ë¶€ ì´ˆê¸°í™”
         {
             isJumping = false;
         }
-        
     }
 }
+
