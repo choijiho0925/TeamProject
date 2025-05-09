@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 901288394850030734}
   - component: {fileID: 5513617865243759748}
   - component: {fileID: 8191095613175539472}
+  - component: {fileID: 2939484210685589371}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.764151, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -4883,3 +4884,22 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2939484210685589371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844627497884669541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56312958b848274981f8d9c50388ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: 0
+  firePlayerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  waterPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 128
