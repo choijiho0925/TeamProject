@@ -10,9 +10,10 @@ public enum FlaskType
 
 public class Flask : MonoBehaviour
 {
-    public FlaskType flasktype;
-    public LayerMask firePlayerLayer;
-    public LayerMask waterPlayerLayer;
+    //인스펙터
+    public FlaskType flasktype; //이넘으로 타입설정
+    public LayerMask firePlayerLayer; // 퉁사후르레이어
+    public LayerMask waterPlayerLayer;// 타사후르레이어
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +29,7 @@ public class Flask : MonoBehaviour
                 {
                     Debug.Log("퉁사후르가 빨강 플라스크를 획득");
                     Destroy(gameObject);
-                    // Red Flask 획득 수 1 추가
+                    // Red Flask 획득 수 1 추가 아마 스테이지매니저내의 함수()
                 }
                 break;
 
