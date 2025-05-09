@@ -31,7 +31,7 @@ public class Door : MonoBehaviour
         if ((firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
             stayTimer = 0f;
-            doorAnimation.SetBool("IsClear", false);
+            doorAnimation.SetBool("IsClear", false);//¹® ´ÝÈû
         }
     }
 
