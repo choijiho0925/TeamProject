@@ -15,14 +15,13 @@ public class Projectile : MonoBehaviour
 
         bool isPlayerF = (firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0;
         bool isPlayerW = (waterPlayerLayer.value & (1 << collision.gameObject.layer)) != 0;
-
+        Destroy(gameObject);
         switch (bulletType)
         {
             case ColorType.Red:
                 if (isPlayerW)
                 {
                     Debug.Log("Å¸»çÈÄ¸£ »ç¸Á");
-                    Destroy(gameObject);
                     controller.Dead();
                 }
                 break;
@@ -31,7 +30,6 @@ public class Projectile : MonoBehaviour
                 if (isPlayerF)
                 {
                     Debug.Log("Åü»çÈÄ¸£ »ç¸Á");
-                    Destroy(gameObject);
                     controller.Dead();
                 }
                 break;
