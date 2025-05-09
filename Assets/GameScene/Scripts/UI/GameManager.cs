@@ -6,16 +6,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool opption1 = false; // 하트1
+    public bool opption2 = false; // 하트2
+    public bool opption3 = false; // 하트3
+
     private void Awake()
     { 
         if(Instance != null)
         {
-            Destroy(Instance );
+            Destroy(gameObject );
         }
         else
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
+            DontDestroyOnLoad(gameObject);
         }
     }
 
