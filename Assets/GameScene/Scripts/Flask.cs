@@ -6,7 +6,8 @@ public enum ColorType
 {
     Red,
     Blue,
-    Green
+    Green,
+    None
 }
 
 public class Flask : MonoBehaviour
