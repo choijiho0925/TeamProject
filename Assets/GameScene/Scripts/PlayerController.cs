@@ -45,5 +45,13 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
     }
+
+    public void Dead()
+    {
+        //플레이어 사망 애니메이션 출력
+        Destroy(gameObject);
+        GameManager.Instance.isPlayingGame = false;
+        GameManager.Instance.isSuccess = false;
+    }
 }
 

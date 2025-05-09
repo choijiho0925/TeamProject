@@ -17,19 +17,19 @@ public class GameUIController : MonoBehaviour
 
     public void Setting()
     {
-        TestGameManager.isPlayingGame = false;
+        GameManager.Instance.isPlayingGame = false;
         settingtUI.SetActive(true); // 셋팅 UI 활성화
     }
 
     public void Continue()
     {
-        TestGameManager.isPlayingGame = true;
+        GameManager.Instance.isPlayingGame = true;
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
     }
 
     public void StageSelected()
     {
-        TestGameManager.isPlayingGame = false; // 게임 진행 중지
+        GameManager.Instance.isPlayingGame = false; // 게임 진행 중지
         SceneManager.LoadScene("StageScene"); // 스테이지 씬으로 이동
     }
 

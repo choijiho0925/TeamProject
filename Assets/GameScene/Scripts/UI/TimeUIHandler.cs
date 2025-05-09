@@ -11,7 +11,7 @@ public class TimeUIHandler : MonoBehaviour
 
     private void Update()
     {
-        if (TestGameManager.isPlayingGame == false)
+        if (GameManager.Instance.isPlayingGame == false)
         {
             Time.timeScale = 0f; // 게임이 진행되지 않을 때 시간 정지
         }
@@ -20,7 +20,7 @@ public class TimeUIHandler : MonoBehaviour
             Time.timeScale = 1f; // 게임이 진행될 때 시간 흐름
         }
 
-        if (TestGameManager.isPlayingGame)
+        if (GameManager.Instance.isPlayingGame)
         {
             playTime += Time.deltaTime; // 게임 진행 시간 업데이트
             UpdateTimeText(); // UI 업데이트

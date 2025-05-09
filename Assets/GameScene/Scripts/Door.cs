@@ -20,8 +20,8 @@ public class Door : MonoBehaviour
                 stayTimer += Time.deltaTime; // 대기시간 더해줌
                 doorAnimation.SetBool("IsClear", true); //문열리는 애니메이션
             if (stayTimer > requiredStayTime)
-            {     
-                    //GameManager.Instance.Clear(); 클리어되는 함수
+            {
+                GameManager.Instance.Clear();
             }
         }
     }
@@ -34,19 +34,4 @@ public class Door : MonoBehaviour
             doorAnimation.SetBool("IsClear", false);//문 닫힘
         }
     }
-
-    //public void Clear() 게임매니저에 붙혀넣을 함수
-    //{
-    //    isSuccess = true;
-    //    isPlayingGame = false;
-    //    클리어 UI SetActive = true
-    //}
-
-    //public void Dead() 플레이어에 들어갈지 게임매니저에 들어갈지 미지수
-    //{
-    //    //플레이어 사망 애니메이션 출력
-    //    Destroy(gameObject);
-    //    Gamemanager.Instance.isPlayingGame = false;
-    //    실패 UI SetActive = true
-    //}
 }
