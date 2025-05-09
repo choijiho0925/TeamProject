@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        controller = collision.GetComponent<PlayerController>();
         int objLayer = collision.gameObject.layer;
 
         bool isPlayerF = (firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0;

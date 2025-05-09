@@ -13,7 +13,7 @@ public class Flooring : MonoBehaviour
     public LayerMask waterPlayerLayer;// 타사후르 레이어 설정
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        controller = collision.GetComponent<PlayerController>();
         int objLayer = collision.gameObject.layer;
 
         bool isPlayerF = (firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0;
@@ -22,7 +22,7 @@ public class Flooring : MonoBehaviour
         switch (flooringType)
         {
             case ColorType.Red:
-                if (isPlayerF)
+                if (isPlayerW)
                 {
                     Debug.Log("타사후르사망");
                     controller.Dead();
@@ -30,7 +30,7 @@ public class Flooring : MonoBehaviour
                 break;
 
             case ColorType.Blue:
-                if (isPlayerW)
+                if (isPlayerF)
                 {
                     Debug.Log("퉁사후르사망");
                     controller.Dead();
