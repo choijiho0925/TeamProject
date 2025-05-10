@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameUIController : MonoBehaviour
 {
+    [Header("StartScene")]
+    [SerializeField] private GameObject Option; // 옵션 UI
+
+    [Header("GameUI")] 
     [SerializeField] private GameObject gameUI; // 게임 UI
     [SerializeField] private GameObject settingtUI; // 셋팅 UI
     [SerializeField] private GameObject resultUI; // 스테이지 선택 UI
+    [SerializeField] private GameObject restartButton; // 재시작 버튼
+    [SerializeField] private GameObject timeUI; // 시간 UI
 
     TimeUIHandler timeUIHandler;
 
@@ -57,7 +63,7 @@ public class GameUIController : MonoBehaviour
         SceneManager.LoadScene("StageScene"); // 스테이지 씬으로 이동
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
         resultUI.SetActive(false); // 결과 UI 비활성화
-        gameUI.SetActive(false); // 게임 UI 비활성화
+        gameUI.SetActive(true); // 게임 UI 활성화
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
     }
 
@@ -87,6 +93,21 @@ public class GameUIController : MonoBehaviour
     {
         resultUI.SetActive(true); // 결과 UI 활성화    
         GameOverHandler.Instance.PrintResult(); // 결과 출력
+    }
+
+    public void StartOpttion()
+    {
+        Option.SetActive(true); // 옵션 UI 활성화
+    }
+
+    public void CloseOpttion()
+    {
+        Option.SetActive(false); // 옵션 UI 비활성화
+    }
+
+    public void ExitGame()
+    {
+        
     }
 }
 
