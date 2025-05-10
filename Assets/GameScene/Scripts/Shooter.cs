@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    public GameObject projectilePrefab;// 인스펙터에서 투사체 설정
     Projectile projectile;
-    public float interval = 2f;
-    public float shootForce = 4f;
+    public float interval = 2f; // 투사체 발사주기
+    public float shootForce = 4f; // 투사체의 속도
 
 
     void Start()
     {
-        InvokeRepeating("Shooting", interval, interval);
+        InvokeRepeating("Shooting", interval, interval); //(Shootin함수를, interval초에서, interval초사이 시간마다 실행)
     }
     void Shooting()
     {
-        GameObject proj = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        GameObject proj = Instantiate(projectilePrefab, transform.position, transform.rotation);//설정된 투사체를 현위치에 생성
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         rb.AddForce(-transform.up * shootForce, ForceMode2D.Impulse); // 현재 오브젝트가 향하는 방향으로 발사
         Vector2 dir = transform.up;

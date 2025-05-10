@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-        doorAnimation = GetComponentInChildren<Animator>();
+        doorAnimation = GetComponentInChildren<Animator>();// 자식에 있는 animator 가져오기
     }
     private void OnTriggerStay2D(Collider2D collision)// 리지드바디 naverStop안키면 작동 안함
     {
@@ -21,16 +21,16 @@ public class Door : MonoBehaviour
                 doorAnimation.SetBool("IsClear", true); //문열리는 애니메이션
             if (stayTimer > requiredStayTime)
             {
-                GameManager.Instance.Clear();
+                GameManager.Instance.Clear();// 일정시간 대기하면 게임 클리어
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) // 나갈경우 대기시간 초기화
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if ((firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
-            stayTimer = 0f;
+            stayTimer = 0f; // 나갈경우 대기시간 초기화
             doorAnimation.SetBool("IsClear", false);//문 닫힘
         }
     }
