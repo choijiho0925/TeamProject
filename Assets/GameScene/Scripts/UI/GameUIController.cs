@@ -57,6 +57,22 @@ public class GameUIController : MonoBehaviour
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
     }
 
+    public void Result()
+    {
+        resultUI.SetActive(true); // 결과 UI 활성화    
+        GameOverHandler.Instance.PrintResult(); // 결과 출력
+    }
+
+    public void StartOpttion()
+    {
+        Option.SetActive(true); // 옵션 UI 활성화
+    }
+
+    public void CloseOpttion()
+    {
+        Option.SetActive(false); // 옵션 UI 비활성화
+    }
+
     public void StageSelected()
     {
         SceneManager.LoadScene("StageScene"); // 스테이지 씬으로 이동
@@ -101,22 +117,6 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.opption3 = false; // 하트3 초기화
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isResult = false; // 결과창 비활성화
-    }
-
-    public void Result()
-    {
-        resultUI.SetActive(true); // 결과 UI 활성화    
-        GameOverHandler.Instance.PrintResult(); // 결과 출력
-    }
-
-    public void StartOpttion()
-    {
-        Option.SetActive(true); // 옵션 UI 활성화
-    }
-
-    public void CloseOpttion()
-    {
-        Option.SetActive(false); // 옵션 UI 비활성화
     }
 
     public void ExitGame()
