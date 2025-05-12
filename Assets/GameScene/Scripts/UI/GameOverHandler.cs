@@ -31,9 +31,9 @@ public class GameOverHandler : MonoBehaviour
         playTime = timeUI.GetComponent<TimeUIHandler>().playTime; // TimeUIHandler에서 플레이 시간 가져오기
     }
 
-    private void Start()
+    private void start()
     {
-        //ResultUIReset();
+        //resultuireset();
     }
 
     public void PrintResult()
@@ -51,9 +51,9 @@ public class GameOverHandler : MonoBehaviour
         {
             titleText.text = "Game Over...";
             PrintHeartImage();
-            timeText.text = $"Clear Within : {minutes: 00}:{ seconds: 00.00}"
+            timeText.text = $"Clear Within : {minutes: 00}:{seconds: 00.00}"
             ;
-        }   
+        }
     }
 
     //private void ResultUIReset()
@@ -83,6 +83,6 @@ public class GameOverHandler : MonoBehaviour
 
             if (GameManager.Instance.opption3) resultImageList[2].sprite = heartSpriteList[2];
             else resultImageList[2].sprite = heartSpriteList[1];
-        }      
+        }
     }
 }

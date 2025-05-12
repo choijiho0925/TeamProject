@@ -38,6 +38,16 @@ public class StageManager : MonoBehaviour
                 isMove = true;
 
                 isDragging = false; // 오브젝트 클릭 시 드래그 상태 해제
+                if(hit.collider.gameObject.name == "Stage1")
+                {
+                    StageUIManager.Instance.stage1.SetActive(true); // 스테이지 1 버튼 활성화
+                    StageUIManager.Instance.stage2.SetActive(false); // 스테이지 1 버튼 활성화
+                }
+                else if(hit.collider.gameObject.name == "Stage2")
+                {
+                    StageUIManager.Instance.stage1.SetActive(false); // 스테이지 1 버튼 활성화
+                    StageUIManager.Instance.stage2.SetActive(true); // 스테이지 2 버튼 활성화
+                }
             }
             else
             {
@@ -86,4 +96,6 @@ public class StageManager : MonoBehaviour
     {
         mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, zoomScale, Time.deltaTime * 4);
     }
+
+
 }
