@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (moveValue.x == 0)
+        {
+            // 멈췄을때 그자리에 바로서게 예외처리
+            _rigidbody2D.velocity = new Vector2(0, _rigidbody2D.velocity.y);
+        }
         // 레이캐스트 범위에 groundLayer가 없을때만 이동가능하게 예외처리
         if ((moveValue.x < 0 && !IsTouchingWall(Vector2.left)) ||
             (moveValue.x > 0 && !IsTouchingWall(Vector2.right)))
