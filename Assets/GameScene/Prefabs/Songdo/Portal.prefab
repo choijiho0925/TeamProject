@@ -4875,6 +4875,7 @@ GameObject:
   - component: {fileID: 8195246610655280405}
   - component: {fileID: 6473876310776030809}
   - component: {fileID: 8423377618123669132}
+  - component: {fileID: 3754575472555376679}
   m_Layer: 0
   m_Name: Portal_ImageB
   m_TagString: Untagged
@@ -4939,8 +4940,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: acaeaf8bcaba2414e955b04214a19b77, type: 3}
-  m_Color: {r: 1, g: 0.8572457, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f5511c03d8d63464c8ede8467a7f21a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5000,7 +5001,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.375, y: 0.4375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.375, y: 0.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5009,6 +5010,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.375, y: 0.4375}
   m_EdgeRadius: 0
+--- !u!95 &3754575472555376679
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985047106683181599}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76abbf53e17e3714cb6332cc4b038c96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5513579477245765304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,6 +5043,7 @@ GameObject:
   - component: {fileID: 276664263107028362}
   - component: {fileID: 7690589509852418797}
   - component: {fileID: 2035148573183417504}
+  - component: {fileID: 3313948382904389616}
   m_Layer: 0
   m_Name: Portal_ImageA
   m_TagString: Untagged
@@ -5085,7 +5108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: acaeaf8bcaba2414e955b04214a19b77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47a7d931990a4be4b906e7b1b9c87bce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5146,7 +5169,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.375, y: 0.4375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.375, y: 0.4375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5155,6 +5178,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.375, y: 0.4375}
   m_EdgeRadius: 0
+--- !u!95 &3313948382904389616
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513579477245765304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ecf7e29950b24a4bb2264269454df20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8515654796112753561
 GameObject:
   m_ObjectHideFlags: 0
