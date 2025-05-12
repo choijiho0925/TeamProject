@@ -57,7 +57,11 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         // 공중에서 무한점프 불가능하게 설정
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
+        Bounds bounds = _boxCollider2D.bounds;
+        Vector2 boxSize = new Vector2(bounds.size.x * 0.9f, 0.1f);
+        Vector2 origin = new Vector2(bounds.center.x, bounds.min.y - 0.05f);
+
+        RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, 0.01f, groundLayer);
         return hit.collider != null;
     }
     public void Dead()
