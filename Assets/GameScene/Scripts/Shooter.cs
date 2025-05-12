@@ -7,8 +7,7 @@ public class Shooter : MonoBehaviour
     public GameObject projectilePrefab;// 인스펙터에서 투사체 설정
     Projectile projectile;
     public float interval = 2f; // 투사체 발사주기
-    public float shootForce = 4f; // 투사체의 속도
-
+    public float shootForce = 4f; // 투사체의 속도    
 
     void Start()
     {

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2615807013112331820
+--- !u!1 &2139204291039781756
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 692938994833396724}
-  - component: {fileID: 7150495119593149304}
-  - component: {fileID: 4970734014751650584}
+  - component: {fileID: 8525505757412873159}
+  - component: {fileID: 1963136600156477262}
+  - component: {fileID: 4770469843094066406}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &692938994833396724
+--- !u!4 &8525505757412873159
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615807013112331820}
+  m_GameObject: {fileID: 2139204291039781756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.47, y: -0.05, z: -10}
@@ -33,13 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &7150495119593149304
+--- !u!20 &1963136600156477262
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615807013112331820}
+  m_GameObject: {fileID: 2139204291039781756}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -84,11 +84,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4970734014751650584
+--- !u!81 &4770469843094066406
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615807013112331820}
+  m_GameObject: {fileID: 2139204291039781756}
   m_Enabled: 1

@@ -24,11 +24,11 @@ public class UITest : MonoBehaviour
     {
         if (!OptionWindow.active)
         {
-            OptionWindow.SetActive (true);
+            OptionWindow.SetActive(true);
         }
         else
         {
-            OptionWindow.SetActive (false);
+            OptionWindow.SetActive(false);
         }
     }
 }
