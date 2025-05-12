@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         GameManager.Instance.isPlayingGame = false;
         GameManager.Instance.isSuccess = false;
+        GameManager.Instance.GameOver();
     }
 }
 
