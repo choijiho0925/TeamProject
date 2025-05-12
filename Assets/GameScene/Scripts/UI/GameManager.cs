@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+    }
+
     public bool isPlayingGame = false;
     public bool isSuccess = false;
     public bool isResult = false; // 결과창 활성화 여부
