@@ -26,6 +26,11 @@ public class StageInformation : MonoBehaviour
     private float stage2_1BestHeartCount; // 이전 플레이했던 게임중 최고 하트 개수
     private float stage2_2BestHeartCount; // 이전 플레이했던 게임중 최고 하트 개수
 
+    public bool stage1_1Clear; // 1-1클리어 여부
+    public bool stage1_2Clear; // 1-2클리어 여부
+    public bool stage2_1Clear; // 2-1클리어 여부
+    public bool stage2_2Clear; // 2-2클리어 여부
+
     private void Awake()
     {
         if (Instance == null)
@@ -51,6 +56,7 @@ public class StageInformation : MonoBehaviour
         {
             // 하트 개수 계산
             stage1_1HeartCount = 1;
+            stage1_1Clear = true;
             if (GameManager.Instance.opption2) stage1_1HeartCount++;
             if (GameManager.Instance.opption3) stage1_1HeartCount++;
 
@@ -73,6 +79,7 @@ public class StageInformation : MonoBehaviour
         {
             // 하트 개수 계산
             stage1_2HeartCount = 1;
+            stage1_2Clear = true;
             if (GameManager.Instance.opption2) stage1_2HeartCount++;
             if (GameManager.Instance.opption3) stage1_2HeartCount++;
             // 하트 이미지 설정
@@ -94,6 +101,7 @@ public class StageInformation : MonoBehaviour
         {
             // 하트 개수 계산
             stage2_1HeartCount = 1;
+            stage2_1Clear = true;
             if (GameManager.Instance.opption2) stage2_1HeartCount++;
             if (GameManager.Instance.opption3) stage2_1HeartCount++;
             // 하트 이미지 설정
@@ -114,6 +122,7 @@ public class StageInformation : MonoBehaviour
         {
             // 하트 개수 계산
             stage2_2HeartCount = 1;
+            stage2_2Clear = true;
             if (GameManager.Instance.opption2) stage2_2HeartCount++;
             if (GameManager.Instance.opption3) stage2_2HeartCount++;
             // 하트 이미지 설정
