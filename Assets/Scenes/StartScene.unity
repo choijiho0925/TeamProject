@@ -316,6 +316,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6701231401294958658, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7523246439008288209, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
       propertyPath: Option
       value: 
@@ -376,6 +380,10 @@ PrefabInstance:
     - target: {fileID: 2218894218443791444, guid: b1eeca1c6ca82f5488f2358f321053a5, type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218894218443791444, guid: b1eeca1c6ca82f5488f2358f321053a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -504,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 3423525707827837364, guid: 51abc6a4e2ee5684fba94537e69a8323, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423525707827837364, guid: 51abc6a4e2ee5684fba94537e69a8323, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -687,6 +699,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 985135678464139037, guid: 9bbcd8049a5c9d04797b1c0b987f4d71, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067290505272464167, guid: 9bbcd8049a5c9d04797b1c0b987f4d71, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219679392732927564, guid: 9bbcd8049a5c9d04797b1c0b987f4d71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2073224926288409747, guid: 9bbcd8049a5c9d04797b1c0b987f4d71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -785,7 +809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557108088324979767, guid: 9bbcd8049a5c9d04797b1c0b987f4d71, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908324291263014133, guid: 9bbcd8049a5c9d04797b1c0b987f4d71, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -910,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 8448868374807205371, guid: cbac7be1938b223498f22a103bf8466c, type: 3}
       propertyPath: m_Name
       value: StageInformation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448868374807205371, guid: cbac7be1938b223498f22a103bf8466c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
