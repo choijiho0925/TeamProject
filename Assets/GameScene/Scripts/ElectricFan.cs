@@ -11,7 +11,8 @@ public class ElectricFan : MonoBehaviour
         Rigidbody2D rb = collision.attachedRigidbody;
         if (rb != null)
         {
-            rb.AddForce(Vector2.up * liftForce, ForceMode2D.Force);// liftForce¸¸Å­ À§·Î ¶ç¿ì´Â ÈûÀ» ÁÜ
+            Vector2 direction = transform.up;
+            rb.AddForce(direction * liftForce, ForceMode2D.Force);// liftForce¸¸Å­ ÈûÀ» ÁÜ
         }
     }
 }

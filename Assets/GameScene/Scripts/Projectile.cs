@@ -2,18 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ColorType
+public class Projectile : MonoBehaviour
 {
-    Red,
-    Blue,
-    Green,
-    None
-}
-
-public class Flask : MonoBehaviour
-{
-    //인스펙터
-    public ColorType flasktype; //이넘으로 타입설정
+    PlayerController controller;
+    public ColorType bulletType; //이넘으로 타입설정
     public LayerMask firePlayerLayer; // 퉁사후르레이어
     public LayerMask waterPlayerLayer;// 타사후르레이어
 
@@ -23,24 +15,22 @@ public class Flask : MonoBehaviour
 
         bool isPlayerF = (firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0;
         bool isPlayerW = (waterPlayerLayer.value & (1 << collision.gameObject.layer)) != 0;
-
-        switch (flasktype)
+        Destroy(gameObject);
+        switch (bulletType)
         {
             case ColorType.Red:
-                if (isPlayerF)
+                if (isPlayerW)
                 {
-                    Debug.Log("퉁사후르가 빨강 플라스크를 획득");
-                    Destroy(gameObject);
-                    // Red Flask 획득 수 1 추가 아마 스테이지매니저내의 함수()
+                    Debug.Log("타사후르 사망");
+                    controller.Dead();
                 }
                 break;
 
             case ColorType.Blue:
-                if (isPlayerW)
+                if (isPlayerF)
                 {
-                    Debug.Log("타사후르가 파랑 플라스크를 획득");
-                    Destroy(gameObject);
-                    // Blue Flask 획득 수 1 추가
+                    Debug.Log("퉁사후르 사망");
+                    controller.Dead();
                 }
                 break;
         }

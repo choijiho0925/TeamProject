@@ -8,22 +8,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer; // 점프를 초기화시킬 레이어를 가진 객체 설정
 
     private Rigidbody2D _rigidbody2D;
-    private SpriteRenderer _spriterenderer;
+    private BoxCollider2D _boxCollider2D;
 
     private Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
-    public bool isJumping = false;  // 점프 여부
     public float jumpForce = 5f;    // 점프력
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _spriterenderer = GetComponentInChildren<SpriteRenderer>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     public void FixedUpdate()
     {
-        _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);  //수평 이동 처리
+        // 레이캐스트 범위에 groundLayer가 없을때만 이동가능하게 예외처리
+        if ((moveValue.x < 0 && !IsTouchingWall(Vector2.left)) ||
+            (moveValue.x > 0 && !IsTouchingWall(Vector2.right)))
+        {
+            _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
+        }
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -32,20 +36,30 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && !isJumping)    // 중복점프 방지
+        if (context.performed && IsGrounded())    // 중복점프 방지
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);    // 점프 구현
-            isJumping = true;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0) // 충돌체 레이어에 따라 점프 여부 초기화
-        {
-            isJumping = false;
         }
     }
 
+    private bool IsTouchingWall(Vector2 direction)
+    {
+        Bounds bounds = _boxCollider2D.bounds;
+
+        Vector2 boxSize = new Vector2(bounds.size.x * 0.9f, bounds.size.y * 0.8f); // 체크박스 크기 약간 작게
+        Vector2 origin = bounds.center;
+
+        RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, groundLayer);
+
+        return hit.collider != null;
+    }
+
+    private bool IsGrounded()
+    {
+        // 공중에서 무한점프 불가능하게 설정
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
+        return hit.collider != null;
+    }
     public void Dead()
     {
         //플레이어 사망 애니메이션 출력

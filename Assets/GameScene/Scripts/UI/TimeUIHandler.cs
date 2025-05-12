@@ -9,6 +9,11 @@ public class TimeUIHandler : MonoBehaviour
 
     public float playTime; // 게임 진행 시간
 
+    private void Start()
+    {
+        playTime = 0f; // 초기화
+    }
+
     private void Update()
     {
         if (GameManager.Instance.isPlayingGame == false)
