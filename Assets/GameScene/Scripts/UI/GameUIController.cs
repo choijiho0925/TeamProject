@@ -17,10 +17,9 @@ public class GameUIController : MonoBehaviour
     [SerializeField] public GameObject endRestartButton; // 재시작 버튼
     [SerializeField] public GameObject nextStageButton; // 다음스테이지 선택 버튼
 
-    int endSceneIndex = 4; // 마지막 씬 인덱스
+    public int endSceneIndex = 5; // 마지막 씬 인덱스
 
     TimeUIHandler timeUIHandler;
-    StageInformation stageInformation;
 
     public static GameUIController Instance;
 
@@ -44,26 +43,7 @@ public class GameUIController : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.isResult == true)
-        {
-            if(GameManager.Instance.isSuccess == false)
-            {
-                nextStageButton.SetActive(false); // 다음 스테이지 버튼 비활성화
-            }
-            else
-            {
-                nextStageButton.SetActive(true); // 다음 스테이지 버튼 활성화
-                if (endSceneIndex == SceneManager.GetActiveScene().buildIndex)
-                {
-                    nextStageButton.SetActive(false); // 다음 스테이지 버튼 비활성화
-                }
-                else
-                {
-                    nextStageButton.SetActive(true); // 다음 스테이지 버튼 활성화
-                }
-            }
-            Result();
-        }
+
     }
 
     public void Setting()

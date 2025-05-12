@@ -59,6 +59,18 @@ public class StageUIManager : MonoBehaviour
         GameManager.Instance.stageCount = 3; // 스테이지 카운트 설정
     }
 
+    public void Stage4()
+    {
+        SceneManager.LoadScene(5); // 스테이지 4 씬으로 이동
+        GameManager.Instance.isPlayingGame = true; // 게임 진행 시작
+        GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
+        stage1.SetActive(false); // 스테이지 1 버튼 비활성화
+        stage2.SetActive(false); // 스테이지 2 버튼 비활성화
+        GameUIController.Instance.timeUI.SetActive(true); // 시간 UI
+        GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
+        GameManager.Instance.stageCount = 3; // 스테이지 카운트 설정
+    }
+
     public void Goback()
     {
         SceneManager.LoadScene(1);
