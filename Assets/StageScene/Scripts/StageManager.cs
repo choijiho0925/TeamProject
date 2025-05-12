@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -86,4 +87,15 @@ public class StageManager : MonoBehaviour
         mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, zoomScale, Time.deltaTime * 4);
     }
 
+    public void Stage1()
+    {
+        SceneManager.LoadScene(2); // 스테이지 1 씬으로 이동
+        GameManager.Instance.isPlayingGame = true; // 게임 진행 시작
+        GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
+        GameManager.Instance.opption1 = false; // 하트1 초기화
+        GameManager.Instance.opption2 = false; // 하트2 초기화
+        GameManager.Instance.opption3 = false; // 하트3 초기화
+        GameUIController.Instance.timeUI.SetActive(true); // 시간 UI
+        GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
+    }
 }

@@ -25,17 +25,20 @@ public class GameManager : MonoBehaviour
 
     public bool isPlayingGame = false;
     public bool isSuccess = false;
+    public bool isResult = false; // 결과창 활성화 여부
 
     public void Clear()
     {
         isSuccess = true;
         isPlayingGame = false;
-        //클리어UI SetActive = true
+        isResult = true; // 결과창 활성화
     }
 
 
     public void GameOver()
     {
-        //  실패UI SetActive = true
+        isResult = true; // 결과창 활성화 여부
+        isPlayingGame = false;
+        isSuccess = false;
     }
 }
