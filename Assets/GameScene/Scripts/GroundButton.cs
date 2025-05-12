@@ -10,7 +10,6 @@ public class GroundButton : MonoBehaviour
     protected Animator animator;
 
 
-
     protected virtual void Awake()
     {
         // 애니메이터 컴포넌트를 자식에서 가져옴
@@ -20,8 +19,9 @@ public class GroundButton : MonoBehaviour
 
     public void GroundButtonSwitch()
     {
-        // 레버 동작 상태 진입
+        // 레버 동작 상태 진입       
         animator.SetBool(IsSwitch, true);
+        
     }
 
     public void GroundButtonNoSwitch()
