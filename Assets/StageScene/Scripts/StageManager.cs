@@ -38,6 +38,16 @@ public class StageManager : MonoBehaviour
                 isMove = true;
 
                 isDragging = false; // 오브젝트 클릭 시 드래그 상태 해제
+                if(hit.collider.gameObject.name == "Stage1")
+                {
+                    StageUIManager.Instance.stage1.SetActive(true); // 스테이지 1 버튼 활성화
+                    StageUIManager.Instance.stage2.SetActive(false); // 스테이지 1 버튼 활성화
+                }
+                else if(hit.collider.gameObject.name == "Stage2")
+                {
+                    StageUIManager.Instance.stage1.SetActive(false); // 스테이지 1 버튼 활성화
+                    StageUIManager.Instance.stage2.SetActive(true); // 스테이지 2 버튼 활성화
+                }
             }
             else
             {
@@ -87,15 +97,5 @@ public class StageManager : MonoBehaviour
         mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, zoomScale, Time.deltaTime * 4);
     }
 
-    public void Stage1()
-    {
-        SceneManager.LoadScene(2); // 스테이지 1 씬으로 이동
-        GameManager.Instance.isPlayingGame = true; // 게임 진행 시작
-        GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
-        GameManager.Instance.opption1 = false; // 하트1 초기화
-        GameManager.Instance.opption2 = false; // 하트2 초기화
-        GameManager.Instance.opption3 = false; // 하트3 초기화
-        GameUIController.Instance.timeUI.SetActive(true); // 시간 UI
-        GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
-    }
+
 }
