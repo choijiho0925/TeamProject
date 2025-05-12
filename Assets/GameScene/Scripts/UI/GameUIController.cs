@@ -14,8 +14,13 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject resultUI; // 스테이지 선택 UI
     [SerializeField] public GameObject restartButton; // 재시작 버튼
     [SerializeField] public GameObject timeUI; // 시간 UI
+    [SerializeField] public GameObject endRestartButton; // 재시작 버튼
+    [SerializeField] public GameObject nextStageButton; // 다음스테이지 선택 버튼
+
+    int endSceneIndex = 4; // 마지막 씬 인덱스
 
     TimeUIHandler timeUIHandler;
+    StageInformation stageInformation;
 
     public static GameUIController Instance;
 
@@ -41,6 +46,22 @@ public class GameUIController : MonoBehaviour
     {
         if (GameManager.Instance.isResult == true)
         {
+            if(GameManager.Instance.isSuccess == false)
+            {
+                nextStageButton.SetActive(false); // 다음 스테이지 버튼 비활성화
+            }
+            else
+            {
+                nextStageButton.SetActive(true); // 다음 스테이지 버튼 활성화
+                if (endSceneIndex == SceneManager.GetActiveScene().buildIndex)
+                {
+                    nextStageButton.SetActive(false); // 다음 스테이지 버튼 비활성화
+                }
+                else
+                {
+                    nextStageButton.SetActive(true); // 다음 스테이지 버튼 활성화
+                }
+            }
             Result();
         }
     }
@@ -55,6 +76,22 @@ public class GameUIController : MonoBehaviour
     {
         GameManager.Instance.isPlayingGame = true;
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
+    }
+
+    public void Result()
+    {
+        resultUI.SetActive(true); // 결과 UI 활성화    
+        GameOverHandler.Instance.PrintResult(); // 결과 출력
+    }
+
+    public void StartOpttion()
+    {
+        Option.SetActive(true); // 옵션 UI 활성화
+    }
+
+    public void CloseOpttion()
+    {
+        Option.SetActive(false); // 옵션 UI 비활성화
     }
 
     public void StageSelected()
@@ -72,6 +109,7 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.isPlayingGame = false; // 게임 진행 중지
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isResult = false; // 결과창 비활성화
+        GameManager.Instance.stageCount = 0; // 스테이지 카운트 초기화
     }
 
     public void Restart()
@@ -93,6 +131,7 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.isPlayingGame = true; // 게임 진행 시작
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // 현재 씬 인덱스
         SceneManager.LoadScene(currentSceneIndex + 1); // 다음 씬으로 이동
+        GameManager.Instance.stageCount++; // 스테이지 카운트 증가
         timeUIHandler.playTime = 0f; // 플레이 시간 초기화
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
         resultUI.SetActive(false); // 결과 UI 비활성화
@@ -101,22 +140,6 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.opption3 = false; // 하트3 초기화
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isResult = false; // 결과창 비활성화
-    }
-
-    public void Result()
-    {
-        resultUI.SetActive(true); // 결과 UI 활성화    
-        GameOverHandler.Instance.PrintResult(); // 결과 출력
-    }
-
-    public void StartOpttion()
-    {
-        Option.SetActive(true); // 옵션 UI 활성화
-    }
-
-    public void CloseOpttion()
-    {
-        Option.SetActive(false); // 옵션 UI 비활성화
     }
 
     public void ExitGame()

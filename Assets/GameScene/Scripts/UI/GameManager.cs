@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public bool opption2 = false; // 하트2
     public bool opption3 = false; // 하트3
 
+    [SerializeField]public int stageCount = 0; // 스테이지 카운트
+
     private void Awake()
     { 
         if(Instance != null)
