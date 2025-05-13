@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class GroundButton : MonoBehaviour
 {
+    //        버튼 사용법
+    //버튼으로 작동시키고 싶은 오브젝트 cs에 IActivatable를 붙입니다.
+    //ex : class InteractiveWall : MonoBehaviour, IActivatable
+    //해당 파일에 public void Activate()와 public void Deactivate()를 통해 버튼에 올라가 있을 시 작동될 동작을 추가합니다.
+    //게임을 실행 후 플레이어가 스위치에 올라가 있을 경우 Activate()에 들어있는 내용이 실행됩니다.
+    // 스위치에서 내려오면 Deactivate()에 들어있는 내용이 실행됩니다.
+
+
+
+
+
     //이 버튼이 관리할 오브젝트를 리스트로 관리해서 한 번에 여러 개 작동 가능하도록 구현
     public List<GameObject> targetObjects;
 
