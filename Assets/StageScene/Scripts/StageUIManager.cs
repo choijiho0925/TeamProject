@@ -7,8 +7,10 @@ public class StageUIManager : MonoBehaviour
 {
     [SerializeField] public GameObject stage1; // 스테이지 1 버튼
     [SerializeField] public GameObject stage2; // 스테이지 2 버튼
+    [SerializeField] private GameObject timeUI; // 시간 UI
 
     public static StageUIManager Instance;
+    TimeUIHandler timeUIHandler; // TimeUIHandler 컴포넌트
 
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class StageUIManager : MonoBehaviour
         {
             Destroy(gameObject); // 중복된 오브젝트 삭제
         }
+        timeUIHandler = timeUI.GetComponent<TimeUIHandler>(); // TimeUIHandler 컴포넌트 가져오기 
     }
 
     public void Stage1()
@@ -34,6 +37,7 @@ public class StageUIManager : MonoBehaviour
         GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
         GameManager.Instance.stageCount = 1; // 스테이지 카운트 설정
         StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
+        
     }
 
     public void Stage2()
@@ -53,6 +57,7 @@ public class StageUIManager : MonoBehaviour
             GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
             GameManager.Instance.stageCount = 2; // 스테이지 카운트 설정
             StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
+            
         }
 
     }
@@ -74,6 +79,7 @@ public class StageUIManager : MonoBehaviour
             GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
             GameManager.Instance.stageCount = 3; // 스테이지 카운트 설정
             StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
+            
         }
     }
 
@@ -94,6 +100,7 @@ public class StageUIManager : MonoBehaviour
             GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
             GameManager.Instance.stageCount = 3; // 스테이지 카운트 설정
             StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
+            
         }
     }
 

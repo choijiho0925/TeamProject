@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]public int stageCount = 0; // 스테이지 카운트
 
-
+    public bool isCheckTime = true; // 시간 체크 여부
     public bool isPlayingGame = false;
     public bool isSuccess = false;
     public bool isResult = false; // 결과창 활성화 여부
