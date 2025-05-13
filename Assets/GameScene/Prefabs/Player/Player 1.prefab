@@ -237,6 +237,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 512
   moveSpeed: 5
   jumpForce: 5
 --- !u!50 &3597117409361277330
