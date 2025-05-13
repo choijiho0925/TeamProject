@@ -122,8 +122,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 3
+  jumpForce: 7
 --- !u!50 &3849081979212352647
 Rigidbody2D:
   serializedVersion: 4

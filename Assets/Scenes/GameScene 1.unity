@@ -131,14 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 95234308239481601, guid: 6b38533558a479e40995c6a0b2aab703, type: 3}
-      propertyPath: jumpForce
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 95234308239481601, guid: 6b38533558a479e40995c6a0b2aab703, type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1731581704526924271, guid: 6b38533558a479e40995c6a0b2aab703, type: 3}
       propertyPath: m_Name
       value: Player 2
@@ -12136,6 +12128,10 @@ PrefabInstance:
     - target: {fileID: 1161878126570492546, guid: 3b57d28d93b4e6849b7a1b7e9fad8c55, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597117409361277330, guid: 3b57d28d93b4e6849b7a1b7e9fad8c55, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6139769590257243238, guid: 3b57d28d93b4e6849b7a1b7e9fad8c55, type: 3}
       propertyPath: jumpForce
