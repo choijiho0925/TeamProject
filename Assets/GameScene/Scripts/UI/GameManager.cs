@@ -63,11 +63,22 @@ public class GameManager : MonoBehaviour
             }
             GameUIController.Instance.Result();
         }
-        StageInformation.Instance.PrintStage1_1Heart();
-        StageInformation.Instance.PrintStage1_2Heart();
-        StageInformation.Instance.PrintStage2_1Heart();
-        StageInformation.Instance.PrintStage2_2Heart();
-        StageInformation.Instance.UnLockStage();
+        switch (stageCount)
+        {
+            case 1:
+                StageInformation.Instance.PrintStage1_1Heart();
+                break;
+            case 2:
+                StageInformation.Instance.PrintStage1_2Heart();
+                break;
+            case 3:
+                StageInformation.Instance.PrintStage2_1Heart();
+                break;
+            case 4:
+                StageInformation.Instance.PrintStage2_2Heart();
+                break;
+        }
+                StageInformation.Instance.UnLockStage();
     }
 
 
