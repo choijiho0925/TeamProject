@@ -888,6 +888,10 @@ PrefabInstance:
       propertyPath: Option
       value: 
       objectReference: {fileID: 5167429830048488857}
+    - target: {fileID: 9163631481139122469, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1179,6 +1183,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976502553063923771, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+      propertyPath: timeUI
+      value: 
+      objectReference: {fileID: 1497871302307016829}
     - target: {fileID: 4676816930853966655, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
       propertyPath: m_IsActive
       value: 1

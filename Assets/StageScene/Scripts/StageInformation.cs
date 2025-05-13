@@ -73,7 +73,6 @@ public class StageInformation : MonoBehaviour
             // 하트 개수 계산
             stage1_1HeartCount = 1;
             stage1_1Clear = true;
-            Debug.Log(stage1_1Clear);
             if (GameManager.Instance.opption2) stage1_1HeartCount++;
             if (GameManager.Instance.opption3) stage1_1HeartCount++;
 
