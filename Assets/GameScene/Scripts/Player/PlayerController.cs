@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviour
                 _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
         }
 
-        isAttack = false;
-
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -81,8 +79,9 @@ public class PlayerController : MonoBehaviour
         Vector2 origin = bounds.center;
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);
+        RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, obstacleLayer);
 
-        return hit.collider != null;
+        return hit.collider || hit2.collider != null;
     }
 
     public bool IsGrounded()

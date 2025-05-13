@@ -72,6 +72,7 @@ public class Lever : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))//플레이어가 근처에 있고 E키를 눌러서 실행
         {
+            Debug.Log("레버 작동");
             isActivated = !isActivated;
 
             foreach (var a in activatables)
