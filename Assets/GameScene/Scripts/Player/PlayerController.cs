@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayer; // 점프를 초기화시킬 레이어를 가진 객체 설정
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask obstacleLayer;
 
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         Vector2 boxSize = new Vector2(bounds.size.x * 0.9f, bounds.size.y * 0.8f); // 체크박스 크기 약간 작게
         Vector2 origin = bounds.center;
 
-        RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);
 
         return hit.collider != null;
     }
@@ -67,7 +69,8 @@ public class PlayerController : MonoBehaviour
         Vector2 origin = new Vector2(bounds.center.x, bounds.min.y - 0.05f);
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, 0.01f, groundLayer);
-        return hit.collider != null;
+        RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, 0.01f, obstacleLayer);
+        return hit.collider || hit2.collider != null;
     }
     public void Dead()
     {
