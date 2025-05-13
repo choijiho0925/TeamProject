@@ -6,7 +6,6 @@ public class DestructibleWall : MonoBehaviour
 {
     public LayerMask firePlayerLayer; // 퉁사후르 레이어 설정
     public Animator animator;
-    public Sprite damagedSprite;
     private SpriteRenderer sr;
     private Rigidbody2D rb;
     Collider2D col;
@@ -32,7 +31,6 @@ public class DestructibleWall : MonoBehaviour
 
                 if(hitCount == 1)
                 {
-                    sr.sprite = damagedSprite;
                     animator.SetTrigger("IsAttack");
                 } 
                 else if(hitCount == 2)
