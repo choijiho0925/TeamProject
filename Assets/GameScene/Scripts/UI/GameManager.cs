@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]public int stageCount = 0; // 스테이지 카운트
 
+
+    public bool isPlayingGame = false;
+    public bool isSuccess = false;
+    public bool isResult = false; // 결과창 활성화 여부
+
+    StageInformation stageInformation;
+
     private void Awake()
     { 
         if(Instance != null)
@@ -30,10 +37,6 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
-    public bool isPlayingGame = false;
-    public bool isSuccess = false;
-    public bool isResult = false; // 결과창 활성화 여부
 
     public void Clear()
     {
@@ -60,11 +63,22 @@ public class GameManager : MonoBehaviour
             }
             GameUIController.Instance.Result();
         }
-
-        StageInformation.Instance.PrintStage1_1Heart();
-        StageInformation.Instance.PrintStage1_2Heart();
-        StageInformation.Instance.PrintStage2_1Heart();
-        StageInformation.Instance.PrintStage2_2Heart();
+        switch (stageCount)
+        {
+            case 1:
+                StageInformation.Instance.PrintStage1_1Heart();
+                break;
+            case 2:
+                StageInformation.Instance.PrintStage1_2Heart();
+                break;
+            case 3:
+                StageInformation.Instance.PrintStage2_1Heart();
+                break;
+            case 4:
+                StageInformation.Instance.PrintStage2_2Heart();
+                break;
+        }
+                StageInformation.Instance.UnLockStage();
     }
 
 

@@ -14,6 +14,10 @@ public class StageInformation : MonoBehaviour
     [SerializeField] private List<Image> stage2_2ImageList = new List<Image>(); // 이미지 리스트
     [SerializeField] private List<Sprite> heartSpriteList = new List<Sprite>(); // 하트 이미지 리스트
 
+    [SerializeField] private GameObject Unlock1_2; // 스테이지 1-2 버튼
+    [SerializeField] private GameObject Unlock2_1; // 스테이지 2-1 버튼
+    [SerializeField] private GameObject Unlock2_2; // 스테이지 2-2 버튼
+
     [SerializeField] private TextMeshProUGUI totalHeartStage1;
     [SerializeField] private TextMeshProUGUI totalHeartStage2;
 
@@ -57,6 +61,7 @@ public class StageInformation : MonoBehaviour
             // 하트 개수 계산
             stage1_1HeartCount = 1;
             stage1_1Clear = true;
+            Debug.Log(stage1_1Clear);
             if (GameManager.Instance.opption2) stage1_1HeartCount++;
             if (GameManager.Instance.opption3) stage1_1HeartCount++;
 
@@ -134,6 +139,36 @@ public class StageInformation : MonoBehaviour
                 }
                 stage2_2BestHeartCount = stage2_2HeartCount;
             }
+        }
+    }
+
+    public void UnLockStage()
+    {
+        if (stage1_1Clear)
+        {
+            Unlock1_2.SetActive(false); // 스테이지 1-2 버튼 비활성화
+        }
+        else
+        {
+            Unlock1_2.SetActive(true); // 스테이지 1-2 버튼 활성화
+        }
+
+        if (stage1_2Clear)
+        {
+            Unlock2_1.SetActive(false); // 스테이지 2-1 버튼 비활성화
+        }
+        else
+        {
+            Unlock2_1.SetActive(true); // 스테이지 2-1 버튼 활성화
+        }
+
+        if (stage2_1Clear)
+        {
+            Unlock2_2.SetActive(false); // 스테이지 2-2 버튼 비활성화
+        }
+        else
+        {
+            Unlock2_2.SetActive(true); // 스테이지 2-2 버튼 활성화
         }
     }
 }
