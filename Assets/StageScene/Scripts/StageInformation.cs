@@ -21,10 +21,13 @@ public class StageInformation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalHeartStage1;
     [SerializeField] private TextMeshProUGUI totalHeartStage2;
 
+    [SerializeField] private GameObject timeUI; // 시간 정보
+
     private float stage1_1HeartCount; // 스테이지 1-1 하트 개수
     private float stage1_2HeartCount; // 스테이지 1-2 하트 개수
     private float stage2_1HeartCount; // 스테이지 2-1 하트 개수
     private float stage2_2HeartCount; // 스테이지 2-2 하트 개수
+
     private float stage1_1BestHeartCount; // 이전 플레이했던 게임중 최고 하트 개수
     private float stage1_2BestHeartCount; // 이전 플레이했던 게임중 최고 하트 개수
     private float stage2_1BestHeartCount; // 이전 플레이했던 게임중 최고 하트 개수
@@ -34,6 +37,8 @@ public class StageInformation : MonoBehaviour
     public bool stage1_2Clear; // 1-2클리어 여부
     public bool stage2_1Clear; // 2-1클리어 여부
     public bool stage2_2Clear; // 2-2클리어 여부
+
+    float playTime; // 게임 진행 시간
 
     private void Awake()
     {
@@ -46,6 +51,7 @@ public class StageInformation : MonoBehaviour
         {
             Destroy(gameObject); // 중복된 오브젝트 삭제
         }
+        playTime = timeUI.GetComponent<TimeUIHandler>().playTime; // TimeUIHandler에서 플레이 시간 가져오기
     }
 
     private void Update()
@@ -169,6 +175,38 @@ public class StageInformation : MonoBehaviour
         else
         {
             Unlock2_2.SetActive(true); // 스테이지 2-2 버튼 활성화
+        }
+    }
+
+    public void CheckStage1_1Time()
+    {
+        if (playTime < 30f)
+        {
+            GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+    }
+
+    public void CheckStage1_2Time()
+    {
+        if (playTime < 30f)
+        {
+            GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+    }
+
+    public void CheckStage2_1Time()
+    {
+        if (playTime < 30f)
+        {
+            GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+    }
+
+    public void CheckStage2_2Time()
+    {
+        if (playTime < 30f)
+        {
+            GameManager.Instance.opption2 = true; // 하트2 활성화
         }
     }
 }
