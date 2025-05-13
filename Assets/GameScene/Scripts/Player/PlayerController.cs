@@ -9,17 +9,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask obstacleLayer;
 
+    private SpriteRenderer _renderer;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
 
-    private Vector2 moveValue;  // 이동 값(거리)
+    public Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
     public float jumpForce = 5f;    // 점프력
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();   
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void FixedUpdate()
@@ -32,8 +34,16 @@ public class PlayerController : MonoBehaviour
         // 레이캐스트 범위에 groundLayer가 없을때만 이동가능하게 예외처리
         if ((moveValue.x < 0 && !IsTouchingWall(Vector2.left)) ||
             (moveValue.x > 0 && !IsTouchingWall(Vector2.right)))
-        {
-            _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
+        {   
+            if(moveValue.x < 0)
+            {
+                _renderer.flipX = false;
+            }
+            else
+            {
+                _renderer.flipX = true;
+            }
+                _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
         }
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -75,6 +85,7 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         //플레이어 사망 애니메이션 출력
+        GetComponent<PlayerInput>().enabled = false;
         Destroy(gameObject);
         GameManager.Instance.isPlayingGame = false;
         GameManager.Instance.isSuccess = false;
