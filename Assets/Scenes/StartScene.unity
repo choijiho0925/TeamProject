@@ -893,6 +893,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
+--- !u!1 &1497871302307016829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9163631481139122469, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
+  m_PrefabInstance: {fileID: 1497871302307016828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1882884774461367907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1428,6 +1433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3181961581670286528, guid: cbac7be1938b223498f22a103bf8466c, type: 3}
+      propertyPath: timeUI
+      value: 
+      objectReference: {fileID: 1497871302307016829}
     - target: {fileID: 3181961581670286528, guid: cbac7be1938b223498f22a103bf8466c, type: 3}
       propertyPath: Unlock1_2
       value: 
