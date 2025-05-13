@@ -41,10 +41,16 @@ public class Lever : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    public void LeverSwitch()
+    public void LeverSwitchOn()
     {
         // 레버 동작 애니메이션 실행
         animator.SetBool(IsSwitch, true);
+    }
+
+    public void LeverSwitchOff()
+    {
+        // 레버 동작 애니메이션 실행
+        animator.SetBool(IsSwitch, false);
     }
 
 
@@ -74,7 +80,7 @@ public class Lever : MonoBehaviour
                 else a.Deactivate();
             }
             //작동 되었다면 애니메이션 실행
-            LeverSwitch();
+            LeverSwitchOn();
         }
 
     }
