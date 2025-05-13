@@ -21,6 +21,7 @@ public class Door : MonoBehaviour
                 doorAnimation.SetBool("IsClear", true); //문열리는 애니메이션
             if (stayTimer > requiredStayTime)
             {
+                GameManager.Instance.opption1 = true; // 하트1 활성화
                 GameManager.Instance.Clear();// 일정시간 대기하면 게임 클리어
             }
         }
