@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-
     // Animator 파라미터 이름을 미리 해시로 변환해 캐싱 (성능 최적화)
     private static readonly int IsSwitch = Animator.StringToHash("IsSwitch");
 
