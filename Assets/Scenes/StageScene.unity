@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7169857770253297641, guid: eee05f573eb48104184c8769bcf3a673, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9008006487593500814, guid: eee05f573eb48104184c8769bcf3a673, type: 3}
       propertyPath: m_Name
       value: StageManager
