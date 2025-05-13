@@ -38,6 +38,12 @@ public class StageInformation : MonoBehaviour
     public bool stage2_1Clear; // 2-1클리어 여부
     public bool stage2_2Clear; // 2-2클리어 여부
 
+    public float stage1_1ItemCount = 0; // 1-1 아이템 개수
+    public float stage1_2ItemCount = 0; // 1-2 아이템 개수
+    public float stage2_1ItemCount = 0; // 2-1 아이템 개수
+    public float stage2_2ItemCount = 0; // 2-2 아이템 개수
+
+
     float playTime; // 게임 진행 시간
 
     private void Awake()
@@ -178,6 +184,26 @@ public class StageInformation : MonoBehaviour
         }
     }
 
+    public void ResetItemCount()
+    {
+        if(GameManager.Instance.stageCount == 1)
+        {
+            stage1_1ItemCount = 0;
+        }
+        else if (GameManager.Instance.stageCount == 2)
+        {
+            stage1_2ItemCount = 0;
+        }
+        else if (GameManager.Instance.stageCount == 3)
+        {
+            stage2_1ItemCount = 0;
+        }
+        else if (GameManager.Instance.stageCount == 4)
+        {
+            stage2_2ItemCount = 0;
+        }
+    }
+
     public void CheckStage1_1Time()
     {
         if (playTime < 30f)
@@ -207,6 +233,38 @@ public class StageInformation : MonoBehaviour
         if (playTime < 30f)
         {
             GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+    }
+
+    public void CheckStage1_1Item()
+    {
+        if(stage1_1ItemCount == 8)
+        {
+            GameManager.Instance.opption3 = true; // 하트3 활성화
+        }
+    }
+
+    public void CheckStage1_2Item()
+    {
+        if(stage1_2ItemCount == 8)
+        {
+            GameManager.Instance.opption3 = true; // 하트3 활성화
+        }
+    }
+
+    public void CheckStage2_1Item()
+    {
+        if (stage2_1ItemCount == 8)
+        {
+            GameManager.Instance.opption3 = true; // 하트3 활성화
+        }
+    }
+
+    public void CheckStage2_2Item()
+    {
+        if (stage2_2ItemCount == 8)
+        {
+            GameManager.Instance.opption3 = true; // 하트3 활성화
         }
     }
 }

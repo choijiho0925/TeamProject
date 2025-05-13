@@ -104,6 +104,7 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isPlayingGame = true; // 게임 진행
         GameManager.Instance.isResult = false; // 결과창 비활성화
+        StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
     }
 
     public void NextStage()
@@ -120,6 +121,7 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.opption3 = false; // 하트3 초기화
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isResult = false; // 결과창 비활성화
+        StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
     }
 
     public void ExitGame()
