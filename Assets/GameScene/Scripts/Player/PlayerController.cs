@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
 
     private SpriteRenderer _renderer;
-    private Rigidbody2D _rigidbody2D;
-    private BoxCollider2D _boxCollider2D;
+    public Rigidbody2D _rigidbody2D;
+    private BoxCollider2D _boxCollider2D;   
 
     public Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
     public float jumpForce = 5f;    // 점프력
+
+    public bool isAttack = false;
+    public bool isDead = false;
 
     private void Awake()
     {
@@ -45,6 +48,9 @@ public class PlayerController : MonoBehaviour
             }
                 _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
         }
+
+        isAttack = false;
+
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -56,6 +62,14 @@ public class PlayerController : MonoBehaviour
         if (context.performed && IsGrounded())    // 중복점프 방지
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpForce);    // 점프 구현
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed && IsGrounded())
+        {
+            isAttack = true;
         }
     }
 
@@ -71,7 +85,7 @@ public class PlayerController : MonoBehaviour
         return hit.collider != null;
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         // 공중에서 무한점프 불가능하게 설정
         Bounds bounds = _boxCollider2D.bounds;
@@ -85,10 +99,17 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         //플레이어 사망 애니메이션 출력
+        isDead = true;
         GetComponent<PlayerInput>().enabled = false;
-        Destroy(gameObject);
+        StartCoroutine(DestroyAfterDelay(1f));
         GameManager.Instance.isPlayingGame = false;
         GameManager.Instance.isSuccess = false;
+    }
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+        // 게임 오버 로직 실행
         GameManager.Instance.GameOver();
     }
 }
