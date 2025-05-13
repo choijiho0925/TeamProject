@@ -8,12 +8,15 @@ public class DestructibleWall : MonoBehaviour
     public Animator animator;
     public Sprite damagedSprite;
     private SpriteRenderer sr;
-
+    private Rigidbody2D rb;
+    Collider2D col;
     int hitCount = 0;
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        col = rb.GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -30,13 +33,17 @@ public class DestructibleWall : MonoBehaviour
                 if(hitCount == 1)
                 {
                     sr.sprite = damagedSprite;
-                    animator.SetTrigger("Shack");
+                    animator.SetTrigger("IsAttack");
                 } 
                 else if(hitCount == 2)
                 {
-                    //콜라이더 없애고 스택 게임오버처럼 위로 튕긴후 떨어지게하기
-                    animator.SetTrigger("Shake");
-                    Destroy(this, 1f);
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    Vector2 Direction = new Vector2(Random.Range(-1f,1f),Random.Range(0.5f,1f)).normalized;
+                    rb.AddForce(Direction*5f,ForceMode2D.Impulse);
+                    rb.AddTorque(-5f, ForceMode2D.Impulse);
+                    //아직 퉁사후르 공격이 없어서 테스트 안해봤음
+                    animator.SetTrigger("IsAttack");
+                    Destroy(this, 0.25f);
                 }
             }    
         }
