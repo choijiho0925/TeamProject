@@ -34,11 +34,12 @@ public class GameUIController : MonoBehaviour
         {
             Destroy(gameObject); // 중복된 오브젝트 삭제
         }
+        timeUIHandler = timeUI.GetComponent<TimeUIHandler>(); // TimeUIHandler 컴포넌트 가져오기
     }
 
     private void Start()
     {
-        timeUIHandler = timeUI.GetComponentInChildren<TimeUIHandler>(); // TimeUIHandler 컴포넌트 가져오기       
+          
     }
 
     private void Update()
@@ -48,13 +49,13 @@ public class GameUIController : MonoBehaviour
 
     public void Setting()
     {
-        GameManager.Instance.isPlayingGame = false;
+        timeUIHandler.StopTime(); // 시간 정지
         settingtUI.SetActive(true); // 셋팅 UI 활성화
     }
 
     public void Continue()
     {
-        GameManager.Instance.isPlayingGame = true;
+        timeUIHandler.StartTime(); // 시간 시작
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
     }
 
@@ -77,7 +78,6 @@ public class GameUIController : MonoBehaviour
     public void StageSelected()
     {
         SceneManager.LoadScene("StageScene"); // 스테이지 씬으로 이동
-        timeUIHandler.playTime = 0f; // 플레이 시간 초기화
         settingtUI.SetActive(false); // 셋팅 UI 비활성화
         resultUI.SetActive(false); // 결과 UI 비활성화
         gameUI.SetActive(true); // 게임 UI 활성화
@@ -90,6 +90,8 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isResult = false; // 결과창 비활성화
         GameManager.Instance.stageCount = 0; // 스테이지 카운트 초기화
+        timeUIHandler.StartTime(); // 시간 시작
+        timeUIHandler.playTime = 0f; // 플레이 시간 초기화
     }
 
     public void Restart()
@@ -122,6 +124,7 @@ public class GameUIController : MonoBehaviour
         GameManager.Instance.isSuccess = false; // 게임 성공 상태 초기화
         GameManager.Instance.isResult = false; // 결과창 비활성화
         StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
+        timeUIHandler.playTime = 0f;
     }
 
     public void ExitGame()

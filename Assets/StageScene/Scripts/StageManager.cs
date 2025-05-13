@@ -9,11 +9,12 @@ public class StageManager : MonoBehaviour
     [SerializeField] private float cameraMoveSpeed = 5f; //카메라 이동 속도
     [SerializeField] private float minX, maxX, minY, maxY; //카메라 범위 제한
     [SerializeField] private float ObjPlusX = -1, OvjPlusY = 1; //카메라 중심부터 오브젝트가 떨어진 위치
-    private Camera mainCam;
+    [SerializeField ]private Camera mainCam;
     private Vector3 targetPosition; //카메라 목표 위치
     private bool isMove = false; //카메라 움직임 여부
     private Vector3 mouseClickStartPosition; // 클릭 했을 시 마우스 월드 좌표
     private bool isDragging = false; // 현재 드래그 중인지 여부
+
 
     private void Start()
     {
