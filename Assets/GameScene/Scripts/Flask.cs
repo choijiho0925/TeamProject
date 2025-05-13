@@ -30,11 +30,11 @@ public class Flask : MonoBehaviour
                 if (isPlayerF)
                 {
                     Debug.Log("Åü»çÈÄ¸£°¡ »¡°­ ÇÃ¶ó½ºÅ©¸¦ È¹µæ");
-                    Destroy(gameObject);
                     if (GameManager.Instance.stageCount == 1) { StageInformation.Instance.stage1_1ItemCount++; }
                     else if (GameManager.Instance.stageCount == 2) { StageInformation.Instance.stage1_2ItemCount++; }
                     else if (GameManager.Instance.stageCount == 3) { StageInformation.Instance.stage2_1ItemCount++; }
                     else if (GameManager.Instance.stageCount == 4) { StageInformation.Instance.stage2_2ItemCount++; }
+                    Destroy(gameObject);
                 }
                 break;
 
@@ -42,11 +42,11 @@ public class Flask : MonoBehaviour
                 if (isPlayerW)
                 {
                     Debug.Log("Å¸»çÈÄ¸£°¡ ÆÄ¶û ÇÃ¶ó½ºÅ©¸¦ È¹µæ");
-                    Destroy(gameObject);
                     if (GameManager.Instance.stageCount == 1) { StageInformation.Instance.stage1_1ItemCount++; }
                     else if (GameManager.Instance.stageCount == 2) { StageInformation.Instance.stage1_2ItemCount++; }
                     else if (GameManager.Instance.stageCount == 3) { StageInformation.Instance.stage2_1ItemCount++; }
                     else if (GameManager.Instance.stageCount == 4) { StageInformation.Instance.stage2_2ItemCount++; }
+                    Destroy(gameObject);
                 }
                 break;
         }
