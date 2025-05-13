@@ -16,6 +16,7 @@ public class GameUIController : MonoBehaviour
     [SerializeField] public GameObject timeUI; // 시간 UI
     [SerializeField] public GameObject endRestartButton; // 재시작 버튼
     [SerializeField] public GameObject nextStageButton; // 다음스테이지 선택 버튼
+    [SerializeField] public GameObject SoundUI; // 사운드 UI
 
     public int endSceneIndex = 5; // 마지막 씬 인덱스
 
