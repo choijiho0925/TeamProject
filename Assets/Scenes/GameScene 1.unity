@@ -8076,7 +8076,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1563588076138848665, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: flasktype
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2906961369748068055, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: m_Name
@@ -11939,7 +11939,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1563588076138848665, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: flasktype
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2906961369748068055, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: m_Name
@@ -15882,7 +15882,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1563588076138848665, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: flasktype
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2906961369748068055, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: m_Name
@@ -15951,7 +15951,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1563588076138848665, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: flasktype
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2906961369748068055, guid: 9caca3d88fd052f41816293ecf86a88f, type: 3}
       propertyPath: m_Name
