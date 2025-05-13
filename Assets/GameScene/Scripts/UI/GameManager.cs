@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public bool opption2 = false; // 하트2
     public bool opption3 = false; // 하트3
 
-    [SerializeField]public int stageCount = 0; // 스테이지 카운트
+    [SerializeField] public int stageCount = 0; // 스테이지 카운트
 
     public bool isCheckTime = true; // 시간 체크 여부
     public bool isPlayingGame = false;
@@ -21,10 +21,10 @@ public class GameManager : MonoBehaviour
     StageInformation stageInformation;
 
     private void Awake()
-    { 
-        if(Instance != null)
+    {
+        if (Instance != null)
         {
-            Destroy(gameObject );
+            Destroy(gameObject);
         }
         else
         {
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
                 StageInformation.Instance.PrintStage2_2Heart();
                 break;
         }
-                StageInformation.Instance.UnLockStage();
+        StageInformation.Instance.UnLockStage();
     }
 
 
@@ -109,3 +109,4 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
