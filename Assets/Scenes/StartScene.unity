@@ -926,6 +926,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6690712659952663693, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
+      propertyPath: m_text
+      value: 'Clear within 1: 00'
+      objectReference: {fileID: 0}
     - target: {fileID: 6760843894836189239, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -45,13 +45,13 @@ public class GameOverHandler : MonoBehaviour // ½Ì±ÛÅæ ³Ê¹« ¸·¾²Áö¸»±â
         {
             titleText.text = "Game Clear!";
             PrintHeartImage();
-            timeText.text = $"Clear Within : {minutes: 00}:{seconds: 00.00}";
+            timeText.text = $"Clear Within : {minutes}min {seconds.ToString("F2")}seconds";
         }
         else
         {
             titleText.text = "Game Over...";
             PrintHeartImage();
-            timeText.text = $"Clear Within : {minutes: 00}:{seconds: 00.00}"
+            timeText.text = $"Clear Within : {minutes}min {seconds.ToString("F2")}seconds";
             ;
         }
     }
