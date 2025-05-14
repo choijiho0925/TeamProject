@@ -9,17 +9,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask obstacleLayer;
 
-    private Rigidbody2D _rigidbody2D;
-    private BoxCollider2D _boxCollider2D;
+    private SpriteRenderer _renderer;
+    public Rigidbody2D _rigidbody2D;
+    private BoxCollider2D _boxCollider2D;   
 
-    private Vector2 moveValue;  // 이동 값(거리)
+    public Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
     public float jumpForce = 5f;    // 점프력
+
+    public bool isAttack = false;
+    public bool isDead = false;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();   
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void FixedUpdate()
@@ -32,9 +37,18 @@ public class PlayerController : MonoBehaviour
         // 레이캐스트 범위에 groundLayer가 없을때만 이동가능하게 예외처리
         if ((moveValue.x < 0 && !IsTouchingWall(Vector2.left)) ||
             (moveValue.x > 0 && !IsTouchingWall(Vector2.right)))
-        {
-            _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
+        {   
+            if(moveValue.x < 0)
+            {
+                _renderer.flipX = false;
+            }
+            else
+            {
+                _renderer.flipX = true;
+            }
+                _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
         }
+
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -49,6 +63,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed && IsGrounded())
+        {
+            isAttack = true;
+        }
+    }
+
     private bool IsTouchingWall(Vector2 direction)
     {
         Bounds bounds = _boxCollider2D.bounds;
@@ -57,11 +79,12 @@ public class PlayerController : MonoBehaviour
         Vector2 origin = bounds.center;
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);
+        RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, obstacleLayer);
 
-        return hit.collider != null;
+        return hit.collider || hit2.collider != null;
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         // 공중에서 무한점프 불가능하게 설정
         Bounds bounds = _boxCollider2D.bounds;
@@ -75,9 +98,17 @@ public class PlayerController : MonoBehaviour
     public void Dead()
     {
         //플레이어 사망 애니메이션 출력
-        Destroy(gameObject);
+        isDead = true;
+        GetComponent<PlayerInput>().enabled = false;
+        StartCoroutine(DestroyAfterDelay(1f));
         GameManager.Instance.isPlayingGame = false;
         GameManager.Instance.isSuccess = false;
+    }
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+        // 게임 오버 로직 실행
         GameManager.Instance.GameOver();
     }
 }
