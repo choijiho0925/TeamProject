@@ -17,7 +17,7 @@ public class HiddenWall : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0)
+        if((firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0 || (waterPlayerLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
             Tilemap.color = new Color(1,1,1,0.2f);
         }
