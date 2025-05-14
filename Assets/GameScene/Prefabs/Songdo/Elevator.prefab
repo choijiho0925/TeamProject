@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3714837390952341559}
   - component: {fileID: 1320117147912377959}
   - component: {fileID: 7092953686594302894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ElevatorPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,6 +175,7 @@ MonoBehaviour:
   topPoint: {fileID: 3776743425962065521}
   bottomPoint: {fileID: 5700199938222695168}
   speed: 2
+  useSwitchControl: 1
 --- !u!1 &3904887996885398503
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5700199938222695168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ElevatorBottomPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525656887082872229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4048262984964982868}
   - component: {fileID: 2635549983904614289}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3776743425962065521}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ElevatorTopPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
