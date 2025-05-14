@@ -8,18 +8,18 @@ public class DestructibleWall : MonoBehaviour
     public Animator animator;
     private SpriteRenderer sr;
     private Rigidbody2D rb;
-    Collider2D col;
+    CircleCollider2D col;
     int hitCount = 0;
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        col = rb.GetComponent<Collider2D>();
+        col = rb.GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(CircleCollider2D collision)
     {
         
         if ((firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0)
@@ -41,7 +41,7 @@ public class DestructibleWall : MonoBehaviour
                     rb.AddTorque(-5f, ForceMode2D.Impulse);
                     //아직 퉁사후르 공격이 없어서 테스트 안해봤음
                     animator.SetTrigger("IsAttack");
-                    Destroy(this, 0.25f);
+                    Destroy(gameObject, 1f);
                 }
             }    
         }
