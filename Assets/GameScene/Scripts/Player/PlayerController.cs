@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _renderer;
     public Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
+    private BoxCollider2D weaponColider2D;
 
     public Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
+        weaponColider2D = transform.Find("WeaponPivot")?.GetComponent<BoxCollider2D>();
     }
 
     public void FixedUpdate()
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             isAttack = true;
             StartCoroutine(AttackDelay(0.5f));
+            OnHit();
         }
     }
 
@@ -76,8 +79,8 @@ public class PlayerController : MonoBehaviour
     {
         Bounds bounds = _boxCollider2D.bounds;
 
-        Vector2 boxSize = new Vector2(bounds.size.x * 0.9f, bounds.size.y * 0.8f); // 체크박스 크기 약간 작게
-        Vector2 origin = bounds.center;
+        Vector2 boxSize = new Vector2(bounds.size.x, bounds.size.y); // 체크박스 크기 약간 작게
+        Vector2 origin = bounds.center;        
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);
         RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, obstacleLayer);
@@ -116,7 +119,17 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         isAttack = false;
+        weaponColider2D.enabled = false;
     }
 
+    private void OnHit()
+    {
+        if(isAttack)
+        {            
+            Debug.Log("공격");
+            weaponColider2D.enabled = true;
+            StartCoroutine(AttackDelay(0.5f));
+        }
+    }
 }
 
