@@ -31,7 +31,6 @@ public class Lever : MonoBehaviour
 
 
 
-
     protected Animator animator;
 
 
@@ -80,8 +79,17 @@ public class Lever : MonoBehaviour
                 if (isActivated) a.Activate();
                 else a.Deactivate();
             }
-            //작동 되었다면 애니메이션 실행
-            LeverSwitchOn();
+            if (isActivated)
+            {
+                //작동 되었다면 애니메이션 실행
+                LeverSwitchOn();
+            }
+            else
+            {
+                //다시 레버를 누르면 애니메이션 실행
+                LeverSwitchOff();
+            }
+
         }
 
     }
