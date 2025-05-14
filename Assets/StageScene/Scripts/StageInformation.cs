@@ -43,8 +43,7 @@ public class StageInformation : MonoBehaviour
     public float stage2_1ItemCount = 0; // 2-1 아이템 개수
     public float stage2_2ItemCount = 0; // 2-2 아이템 개수
 
-
-    float playTime; // 게임 진행 시간
+    [SerializeField] float playTime; // 게임 진행 시간
 
     private void Awake()
     {
@@ -57,13 +56,14 @@ public class StageInformation : MonoBehaviour
         {
             Destroy(gameObject); // 중복된 오브젝트 삭제
         }
-        playTime = timeUI.GetComponent<TimeUIHandler>().playTime; // TimeUIHandler에서 플레이 시간 가져오기
     }
 
     private void Update()
     {
         totalHeartStage1.text = $"{stage1_1BestHeartCount + stage1_2BestHeartCount} / 6"; // 스테이지 1 총 하트 개수
         totalHeartStage2.text = $"{stage2_1BestHeartCount + stage2_2BestHeartCount} / 6"; // 스테이지 2 총 하트 개수
+
+        playTime = timeUI.GetComponent<TimeUIHandler>().playTime; // TimeUIHandler에서 플레이 시간 가져오기
     }
 
     public void PrintStage1_1Heart()
@@ -71,10 +71,10 @@ public class StageInformation : MonoBehaviour
         if (GameManager.Instance.stageCount == 1 && GameManager.Instance.opption1)
         {
             // 하트 개수 계산
-            stage1_1HeartCount = 1;
-            stage1_1Clear = true;
-            if (GameManager.Instance.opption2) stage1_1HeartCount++;
-            if (GameManager.Instance.opption3) stage1_1HeartCount++;
+            stage1_1HeartCount = 0;
+            if (GameManager.Instance.opption1) stage1_1HeartCount++; // 하트 활성화
+            if (GameManager.Instance.opption2) stage1_1HeartCount++; // 하트 활성화
+            if (GameManager.Instance.opption3) stage1_1HeartCount++; // 하트 활성화
 
             // 하트 이미지 설정
             if (stage1_1BestHeartCount < stage1_1HeartCount)
@@ -94,8 +94,8 @@ public class StageInformation : MonoBehaviour
         if (GameManager.Instance.stageCount == 2 && GameManager.Instance.opption1)
         {
             // 하트 개수 계산
-            stage1_2HeartCount = 1;
-            stage1_2Clear = true;
+            stage1_2HeartCount = 0;
+            if (GameManager.Instance.opption1) stage1_2HeartCount++; // 하트 활성화
             if (GameManager.Instance.opption2) stage1_2HeartCount++;
             if (GameManager.Instance.opption3) stage1_2HeartCount++;
             // 하트 이미지 설정
@@ -116,8 +116,9 @@ public class StageInformation : MonoBehaviour
         if (GameManager.Instance.stageCount == 3 && GameManager.Instance.opption1)
         {
             // 하트 개수 계산
-            stage2_1HeartCount = 1;
-            stage2_1Clear = true;
+            stage2_1HeartCount = 0;
+
+            if (GameManager.Instance.opption1) stage2_1HeartCount++; // 하트 활성화
             if (GameManager.Instance.opption2) stage2_1HeartCount++;
             if (GameManager.Instance.opption3) stage2_1HeartCount++;
             // 하트 이미지 설정
@@ -137,8 +138,9 @@ public class StageInformation : MonoBehaviour
         if (GameManager.Instance.stageCount == 4 && GameManager.Instance.opption1)
         {
             // 하트 개수 계산
-            stage2_2HeartCount = 1;
-            stage2_2Clear = true;
+            stage2_2HeartCount = 0;
+
+            if (GameManager.Instance.opption1) stage2_2HeartCount++; // 하트 활성화
             if (GameManager.Instance.opption2) stage2_2HeartCount++;
             if (GameManager.Instance.opption3) stage2_2HeartCount++;
             // 하트 이미지 설정
@@ -205,33 +207,49 @@ public class StageInformation : MonoBehaviour
 
     public void CheckStage1_1Time()
     {
-        if (playTime < 30f)
+        if (playTime < 60f)
         {
             GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+        else
+        {
+            GameManager.Instance.opption2 = false; // 하트2 비활성화
         }
     }
 
     public void CheckStage1_2Time()
     {
-        if (playTime < 30f)
+        if (playTime < 60f)
         {
             GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+        else
+        {
+            GameManager.Instance.opption2 = false; // 하트2 비활성화
         }
     }
 
     public void CheckStage2_1Time()
     {
-        if (playTime < 30f)
+        if (playTime < 60f)
         {
             GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+        else
+        {
+            GameManager.Instance.opption2 = false; // 하트2 비활성화
         }
     }
 
     public void CheckStage2_2Time()
     {
-        if (playTime < 30f)
+        if (playTime < 60f)
         {
             GameManager.Instance.opption2 = true; // 하트2 활성화
+        }
+        else
+        {
+            GameManager.Instance.opption2 = false; // 하트2 비활성화
         }
     }
 
@@ -241,29 +259,46 @@ public class StageInformation : MonoBehaviour
         {
             GameManager.Instance.opption3 = true; // 하트3 활성화
         }
+        else
+        {
+            GameManager.Instance.opption3 = false; // 하트3 비활성화
+        }
     }
 
     public void CheckStage1_2Item()
     {
-        if(stage1_2ItemCount == 8)
+        if(stage1_2ItemCount == 9)
         {
             GameManager.Instance.opption3 = true; // 하트3 활성화
         }
+        else
+        {
+            GameManager.Instance.opption3 = false; // 하트3 비활성화
+        }
+
     }
 
     public void CheckStage2_1Item()
     {
-        if (stage2_1ItemCount == 8)
+        if (stage2_1ItemCount == 5)
         {
             GameManager.Instance.opption3 = true; // 하트3 활성화
+        }
+        else
+        {
+            GameManager.Instance.opption3 = false; // 하트3 비활성화
         }
     }
 
     public void CheckStage2_2Item()
     {
-        if (stage2_2ItemCount == 8)
+        if (stage2_2ItemCount == 6)
         {
             GameManager.Instance.opption3 = true; // 하트3 활성화
+        }
+        else
+        {
+            GameManager.Instance.opption3 = false; // 하트3 비활성화
         }
     }
 }
