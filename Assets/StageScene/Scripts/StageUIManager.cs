@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StageUIManager : MonoBehaviour
+public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
 {
     [SerializeField] public GameObject stage1; // 스테이지 1 버튼
     [SerializeField] public GameObject stage2; // 스테이지 2 버튼

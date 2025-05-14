@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageInformation : MonoBehaviour
+public class StageInformation : MonoBehaviour // 나중에 시간날때 Enum, List, Dictionary로 바꿔서 조금 더 확장성 있게 좀 짜보기 너무 개떡같이 만들어놨음. 싱글톤 너무 막쓰지말기
 {
     public static StageInformation Instance;
 
@@ -146,9 +146,9 @@ public class StageInformation : MonoBehaviour
             // 하트 이미지 설정
             if (stage2_2BestHeartCount < stage2_2HeartCount)
             {
-                for (int i = 0; i < stage2_2HeartCount && i < stage2_1ImageList.Count; i++)
+                for (int i = 0; i < stage2_2HeartCount && i < stage2_2ImageList.Count; i++)
                 {
-                    stage2_1ImageList[i].sprite = heartSpriteList[0];
+                    stage2_2ImageList[i].sprite = heartSpriteList[0];
                 }
                 stage2_2BestHeartCount = stage2_2HeartCount;
             }

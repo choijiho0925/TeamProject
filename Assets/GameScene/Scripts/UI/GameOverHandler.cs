@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverHandler : MonoBehaviour
+public class GameOverHandler : MonoBehaviour // 싱글톤 너무 막쓰지말기
 {
     [SerializeField] private List<Image> resultImageList = new List<Image>(); // 이미지 리스트
     [SerializeField] private List<Sprite> heartSpriteList = new List<Sprite>(); // 하트 이미지 리스트
