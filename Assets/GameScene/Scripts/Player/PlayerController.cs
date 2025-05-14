@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;    // 이동 속도
     public float jumpForce = 5f;    // 점프력
 
-    public bool isAttack = false;
-    public bool isDead = false;    
+    public bool isAttack = false;   // 공격 애니메이션 여부를 위한 불값
+    public bool isDead = false;    // 사망 확인
 
     private void Awake()
     {
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         if ((moveValue.x < 0 && !IsTouchingWall(Vector2.left)) ||
             (moveValue.x > 0 && !IsTouchingWall(Vector2.right)))
         {
+            // 캐릭터 이미지 움직이는 방향을 향하게 플립
             if (moveValue.x < 0)
             {
                 _renderer.flipX = false;
@@ -70,7 +71,6 @@ public class PlayerController : MonoBehaviour
         if (context.performed && IsGrounded())
         {
             isAttack = true;
-            StartCoroutine(AttackDelay(0.5f));
             OnHit();
         }
     }
@@ -79,21 +79,21 @@ public class PlayerController : MonoBehaviour
     {
         Bounds bounds = _boxCollider2D.bounds;
 
-        Vector2 boxSize = new Vector2(bounds.size.x, bounds.size.y); // 체크박스 크기 약간 작게
-        Vector2 origin = bounds.center;        
+        Vector2 boxSize = new Vector2(bounds.size.x, bounds.size.y);    // 박스 크기 설정
+        Vector2 origin = bounds.center;   // 박스 중심 설정     
 
-        RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);  // 충돌 레이어 설정 및 이동 방향에 따라 레이캐스트
         RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, obstacleLayer);
 
-        return hit.collider || hit2.collider != null;
+        return hit.collider || hit2.collider != null;   // 하나라도 충돌하면 true 반환
     }
 
     public bool IsGrounded()
     {
         // 공중에서 무한점프 불가능하게 설정
         Bounds bounds = _boxCollider2D.bounds;
-        Vector2 boxSize = new Vector2(bounds.size.x * 0.9f, 0.1f);
-        Vector2 origin = new Vector2(bounds.center.x, bounds.min.y - 0.05f);
+        Vector2 boxSize = new Vector2(bounds.size.x * 0.9f, 0.1f); 
+        Vector2 origin = new Vector2(bounds.center.x, bounds.min.y - 0.05f); 
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, 0.01f, groundLayer);
         RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, Vector2.down, 0.01f, obstacleLayer);
@@ -103,8 +103,8 @@ public class PlayerController : MonoBehaviour
     {
         //플레이어 사망 애니메이션 출력
         isDead = true;
-        GetComponent<PlayerInput>().enabled = false;
-        StartCoroutine(DestroyAfterDelay(1f));
+        GetComponent<PlayerInput>().enabled = false;    // 캐릭터 사망시 인풋시스템 비활성화
+        StartCoroutine(DestroyAfterDelay(1f));  // 사망 애니메이션 출력후 오브젝트 제거
         GameManager.Instance.isPlayingGame = false;
         GameManager.Instance.isSuccess = false;
     }
@@ -126,9 +126,8 @@ public class PlayerController : MonoBehaviour
     {
         if(isAttack)
         {            
-            Debug.Log("공격");
             weaponCollider2D.enabled = true;
-            StartCoroutine(AttackDelay(0.5f));
+            StartCoroutine(AttackDelay(0.5f));  // 공격 애니메이션
         }
     }
 }

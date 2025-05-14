@@ -14,7 +14,7 @@ public class P_AnimContorller : MonoBehaviour
         controller = GetComponent<PlayerController>();
     }
 
-    private readonly int hashMove = Animator.StringToHash("IsMove");
+    private readonly int hashMove = Animator.StringToHash("IsMove");    //애니메이션을 위한 해시값
     private readonly int hashJump = Animator.StringToHash("IsJumping");
     private readonly int hashFall = Animator.StringToHash("IsFalling");
     private readonly int hashAttack = Animator.StringToHash("IsAttack");
@@ -30,14 +30,14 @@ public class P_AnimContorller : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        bool isMove = Mathf.Abs(controller.moveValue.x) != 0;
+        bool isMove = Mathf.Abs(controller.moveValue.x) != 0;   // 이동 여부 확인
         animator.SetBool("IsMove", isMove);
     }
 
     private void OnAnimationJump(float yValue, bool isGrounded)
     {
-        bool jump = yValue > 0f;
-        bool fall = yValue < 0f;
+        bool jump = yValue > 0f;    // 점프 여부 확인
+        bool fall = yValue < 0f;    // 낙하 여부 확인
 
         animator.SetBool("IsJumping", !isGrounded && jump);
         animator.SetBool("IsFalling", !isGrounded && fall);
@@ -45,7 +45,7 @@ public class P_AnimContorller : MonoBehaviour
 
     private void OnAnimationAttack()
     {        
-        animator.SetBool("IsAttack", controller.isAttack);
+        animator.SetBool("IsAttack", controller.isAttack);  //controller.isAttack의 여부에 따라 실행
     }
 
     private void OnAnimationDie()
