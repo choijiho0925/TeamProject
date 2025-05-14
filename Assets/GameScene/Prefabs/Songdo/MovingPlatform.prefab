@@ -271,6 +271,7 @@ MonoBehaviour:
   startPoint: {fileID: 3592454432854086375}
   endPoint: {fileID: 1330559520842263766}
   moveSpeed: 2
+  repeatMoving: 0
 --- !u!1 &8454693069692975307
 GameObject:
   m_ObjectHideFlags: 0
