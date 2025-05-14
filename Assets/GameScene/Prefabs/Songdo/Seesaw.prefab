@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7444693053079481806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Seesaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8964655706661038080}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8488526226972100125}
   - component: {fileID: 65387732952262893}
   - component: {fileID: 7851554676033950285}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SeesawPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 60
   m_Sprite: {fileID: 21300000, guid: 8dce810c46574c045a44826df1689439, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -208,7 +208,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.51}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.0000000037252903}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 8281713342551860785}
   - component: {fileID: 2336859718395885613}
   - component: {fileID: 6556291180704353879}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SeesawPivotImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 59
   m_Sprite: {fileID: 21300000, guid: 208d709db20371e40b598f9637b5132c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4983021986602392685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3592454432854086375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PointA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330559520842263766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PointB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2125383864047721070}
   - component: {fileID: 40599120168895905}
   - component: {fileID: 3297250715833017842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlatformImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 60
   m_Sprite: {fileID: 21300000, guid: 21b60c728c6d506408d12e1cdaa10767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -283,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7818161563710031437}
   - component: {fileID: 5499026549842270498}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
