@@ -130,7 +130,13 @@ public class GameUIController : MonoBehaviour
 
     public void ExitGame()
     {
-        
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        // 빌드된 게임에서 실행 중일 경우
+        Application.Quit();
+    #endif
     }
 }
+
 
