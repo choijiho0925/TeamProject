@@ -28,7 +28,8 @@ public class Lever : MonoBehaviour
 
     //근처에 플레이어가 있어야 작동될 수 있도록 bool 값으로 확인
     private bool playerInRange = false;
-
+    private bool playerFInRange = false;
+    private bool playerWInRange = false;
 
 
 
@@ -70,8 +71,9 @@ public class Lever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))//플레이어가 근처에 있고 E키를 눌러서 실행
+        if (playerFInRange && Input.GetKeyDown(KeyCode.E))//플레이어F가 근처에 있고 E키를 눌러서 실행
         {
+            Debug.Log("플레이어F가 레버 작동");
             isActivated = !isActivated;
 
             foreach (var a in activatables)
@@ -79,8 +81,40 @@ public class Lever : MonoBehaviour
                 if (isActivated) a.Activate();
                 else a.Deactivate();
             }
-            //작동 되었다면 애니메이션 실행
-            LeverSwitchOn();
+            if (isActivated)
+            {
+                //작동 되었다면 애니메이션 실행
+                LeverSwitchOn();
+            }
+            else
+            {
+                //다시 레버를 누르면 애니메이션 실행
+                LeverSwitchOff();
+            }
+
+        }
+
+        if (playerWInRange && Input.GetKeyDown(KeyCode.KeypadEnter))//플레이어W가 근처에 있고 엔터키를 눌러서 실행
+        {
+            Debug.Log("플레이어W가 레버 작동");
+            isActivated = !isActivated;
+
+            foreach (var a in activatables)
+            {
+                if (isActivated) a.Activate();
+                else a.Deactivate();
+            }
+            if (isActivated)
+            {
+                //작동 되었다면 애니메이션 실행
+                LeverSwitchOn();
+            }
+            else
+            {
+                //다시 레버를 누르면 애니메이션 실행
+                LeverSwitchOff();
+            }
+
         }
 
     }
@@ -91,8 +125,19 @@ public class Lever : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("플레이어 닿음");
             playerInRange = true;
+
+            if(other.gameObject.layer == LayerMask.NameToLayer("PlayerF"))
+            {
+                Debug.Log("플레이어F 닿음");
+                playerFInRange = true;
+            }
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("PlayerW"))
+            {
+                Debug.Log("플레이어W 닿음");
+                playerWInRange = true;
+            }
         }
 
     }
@@ -101,5 +146,17 @@ public class Lever : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             playerInRange = false;
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("PlayerF"))
+        {
+            Debug.Log("플레이어F 떠남");
+            playerFInRange = false;
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("PlayerW"))
+        {
+            Debug.Log("플레이어W 떠남");
+            playerWInRange = false;
+        }
     }
 }

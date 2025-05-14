@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer _renderer;
     public Rigidbody2D _rigidbody2D;
-    private BoxCollider2D _boxCollider2D;   
+    private BoxCollider2D _boxCollider2D;
 
     public Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();   
+        _boxCollider2D = GetComponent<BoxCollider2D>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -37,8 +37,8 @@ public class PlayerController : MonoBehaviour
         // 레이캐스트 범위에 groundLayer가 없을때만 이동가능하게 예외처리
         if ((moveValue.x < 0 && !IsTouchingWall(Vector2.left)) ||
             (moveValue.x > 0 && !IsTouchingWall(Vector2.right)))
-        {   
-            if(moveValue.x < 0)
+        {
+            if (moveValue.x < 0)
             {
                 _renderer.flipX = false;
             }
@@ -46,10 +46,8 @@ public class PlayerController : MonoBehaviour
             {
                 _renderer.flipX = true;
             }
-                _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
+            _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
         }
-
-        isAttack = false;
 
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -81,8 +79,9 @@ public class PlayerController : MonoBehaviour
         Vector2 origin = bounds.center;
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, wallLayer);
+        RaycastHit2D hit2 = Physics2D.BoxCast(origin, boxSize, 0f, direction, 0.1f, obstacleLayer);
 
-        return hit.collider != null;
+        return hit.collider || hit2.collider != null;
     }
 
     public bool IsGrounded()

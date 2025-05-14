@@ -15,4 +15,11 @@ public class ElectricFan : MonoBehaviour
             rb.AddForce(direction * liftForce, ForceMode2D.Force);// liftForce∏∏≈≠ »˚¿ª ¡‹
         }
     }
+    public void Activate()
+    {
+    }
+
+    public void Deactivate()
+    {       
+    }
 }

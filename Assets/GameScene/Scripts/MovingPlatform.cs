@@ -13,6 +13,14 @@ public class MovingPlatform : MonoBehaviour, IActivatable
 
     private Vector3 targetPosition;  //지금 플랫폼이 움직이려는 위치
 
+
+    [Header("왕복운동 설정")]
+    public bool repeatMoving = true; // 에디터에서 선택 가능
+
+    [Header("스위치 의존 여부")]
+    public bool useSwitchControl = true; // 에디터에서 선택 가능
+
+
     public void Activate()
     {
         isTriggered = true;
@@ -21,6 +29,10 @@ public class MovingPlatform : MonoBehaviour, IActivatable
 
     public void Deactivate()
     {
+        if (!repeatMoving)
+        {
+            targetPosition = targetPosition == startPoint.position ? endPoint.position : startPoint.position;
+        }
         isTriggered = false;
     }
 
@@ -29,6 +41,9 @@ public class MovingPlatform : MonoBehaviour, IActivatable
     {
         targetPosition = endPoint.position; // 처음에는 엔드 포인트로 이동 나중엔 스타트 포인트로 바뀔 거임
                                             // 왔다갔다 할 수 있게
+
+        if (!useSwitchControl) //만약 스위치에 의존하지 않는다면 자동으로 트루로 동작하도록 설정
+            isTriggered = true;
     }
 
     // Update is called once per frame
@@ -41,10 +56,15 @@ public class MovingPlatform : MonoBehaviour, IActivatable
 
         // 목표 지점에 거의 도달했으면 방향 반전
         // (타겟 위치가 스타트 포인트면 바꿔주고 아니면 스타트 포인트로 목적지 설정)
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+
+        if (repeatMoving)
         {
-            targetPosition = targetPosition == startPoint.position ? endPoint.position : startPoint.position;
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            {
+                targetPosition = targetPosition == startPoint.position ? endPoint.position : startPoint.position;
+            }
         }
+
     }
 
 

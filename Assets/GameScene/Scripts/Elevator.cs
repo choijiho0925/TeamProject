@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,15 +24,27 @@ public class Elevator : MonoBehaviour, IActivatable
     private bool isTriggered = false;
 
     // 플레이어가 올라와 있는지 체크
-    private bool playerOnElevator = false; 
+    private bool playerOnElevator = false;
+
+    [Header("스위치 의존 여부")]
+    public bool useSwitchControl = true; // 에디터에서 선택 가능
+
 
     public void Activate()
     {
-        isTriggered = true;
+        if (useSwitchControl)
+        {
+            isTriggered = true;
+        }
+
     }
     public void Deactivate()
     {
-        isTriggered = false;
+        if (useSwitchControl)
+        {
+            isTriggered = false;
+        }
+
     }
 
 
@@ -59,6 +72,16 @@ public class Elevator : MonoBehaviour, IActivatable
         }
     }
 
+
+    private void Start()
+    {
+        // 스위치 없이 시작하자마자 작동되도록 하고 싶을 경우
+        if (!useSwitchControl)
+        {
+            isTriggered = true;
+        }
+
+    }
 
 
     // Update is called once per frame
