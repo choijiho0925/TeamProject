@@ -17,6 +17,9 @@ public class MovingPlatform : MonoBehaviour, IActivatable
     [Header("왕복운동 설정")]
     public bool repeatMoving = true; // 에디터에서 선택 가능
 
+    [Header("스위치 의존 여부")]
+    public bool useSwitchControl = true; // 에디터에서 선택 가능
+
 
     public void Activate()
     {
@@ -38,6 +41,9 @@ public class MovingPlatform : MonoBehaviour, IActivatable
     {
         targetPosition = endPoint.position; // 처음에는 엔드 포인트로 이동 나중엔 스타트 포인트로 바뀔 거임
                                             // 왔다갔다 할 수 있게
+
+        if (!useSwitchControl) //만약 스위치에 의존하지 않는다면 자동으로 트루로 동작하도록 설정
+            isTriggered = true;
     }
 
     // Update is called once per frame
