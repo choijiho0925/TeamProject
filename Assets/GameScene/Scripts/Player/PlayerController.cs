@@ -12,25 +12,25 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _renderer;
     public Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
-    private BoxCollider2D weaponColider2D;
+    private BoxCollider2D weaponCollider2D;
 
     public Vector2 moveValue;  // 이동 값(거리)
     public float moveSpeed = 5f;    // 이동 속도
     public float jumpForce = 5f;    // 점프력
 
     public bool isAttack = false;
-    public bool isDead = false;
+    public bool isDead = false;    
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
-        weaponColider2D = transform.Find("WeaponPivot")?.GetComponent<BoxCollider2D>();
+        weaponCollider2D = transform.Find("WeaponPivot")?.GetComponent<BoxCollider2D>();
     }
 
     public void FixedUpdate()
-    {
+    {        
         if (moveValue.x == 0)
         {
             // 멈췄을때 그자리에 바로서게 예외처리
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             {
                 _renderer.flipX = true;
             }
-            _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);
+            _rigidbody2D.velocity = new Vector2(moveValue.x * moveSpeed, _rigidbody2D.velocity.y);            
         }
 
     }
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         isAttack = false;
-        weaponColider2D.enabled = false;
+        weaponCollider2D.enabled = false;
     }
 
     private void OnHit()
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
         if(isAttack)
         {            
             Debug.Log("공격");
-            weaponColider2D.enabled = true;
+            weaponCollider2D.enabled = true;
             StartCoroutine(AttackDelay(0.5f));
         }
     }
