@@ -26,6 +26,8 @@ public class GroundButton : MonoBehaviour
 
     protected Animator animator;
 
+    private int playerCount = 0; // 현재 버튼 위에 있는 플레이어 수
+
 
     protected virtual void Awake()
     {
@@ -67,21 +69,35 @@ public class GroundButton : MonoBehaviour
     {
         //버튼은 뭐가 올라가든 눌리지만 플레이어가 올라갔을 때만 작동되도록
         GroundButtonSwitch();
+
         if (other.CompareTag("Player"))
         {
-            foreach (var a in activatables)
-                a.Activate();
+            playerCount++;
+
+            // 처음 올라온 경우만 작동
+            if (playerCount == 1)
+            {
+                foreach (var a in activatables)
+                    a.Activate();
+            }
         }
     }
 
     //버튼에서 내려옴
     private void OnTriggerExit2D(Collider2D other)
     {
-        GroundButtonNoSwitch();
+
         if (other.CompareTag("Player"))
         {
-            foreach (var a in activatables)
-                a.Deactivate();
+            playerCount = Mathf.Max(0, playerCount - 1); // 음수 방지
+
+            // 마지막 플레이어가 나갈 때만 작동 해제
+            if (playerCount == 0)
+            {
+                foreach (var a in activatables)
+                    a.Deactivate();
+                GroundButtonNoSwitch();
+            }
         }
     }
 
