@@ -38,6 +38,11 @@ public class SoundManager : MonoBehaviour
         settingMasterSoundSlider.onValueChanged.AddListener(SetVolume);
         optionMasterSoundSlider.onValueChanged.AddListener(SetVolume);
     }
+    private void Update()
+    {
+        settingMasterSoundSlider.value = masterSound.volume;
+        optionMasterSoundSlider.value = masterSound.volume;
+    }
 
     public void Init()
     {
