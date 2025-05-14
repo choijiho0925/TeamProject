@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElectricFan : MonoBehaviour
+public class ElectricFan : MonoBehaviour, IActivatable
 {
     public float liftForce = 10f; //올려보낼 힘 인스펙터창에서 설정
 
@@ -17,6 +17,7 @@ public class ElectricFan : MonoBehaviour
     }
     public void Activate()
     {
+        liftForce = 0f;
     }
 
     public void Deactivate()
