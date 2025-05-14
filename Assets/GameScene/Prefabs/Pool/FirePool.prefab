@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7767439251502043073}
   - component: {fileID: 622171106533351148}
   - component: {fileID: -960825411760885711}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: FirePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
