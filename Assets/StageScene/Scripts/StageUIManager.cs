@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
 {
@@ -11,7 +13,7 @@ public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
 
     public static StageUIManager Instance;
     TimeUIHandler timeUIHandler; // TimeUIHandler 컴포넌트
-
+    public bool ClickBackButton = false;
     private void Awake()
     {
         if (Instance == null)
@@ -103,7 +105,12 @@ public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
             
         }
     }
-
+    public void GobackNoReLoad()
+    {
+        stage1.SetActive(false); // 스테이지 1 버튼 비활성화
+        stage2.SetActive(false); // 스테이지 2 버튼 비활성화
+        ClickBackButton = true;
+    }
     public void Goback()
     {
         SceneManager.LoadScene(1);

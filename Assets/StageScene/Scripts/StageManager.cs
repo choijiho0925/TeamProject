@@ -9,7 +9,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private float cameraMoveSpeed = 5f; //카메라 이동 속도
     [SerializeField] private float minX, maxX, minY, maxY; //카메라 범위 제한
     [SerializeField] private float ObjPlusX = -1, OvjPlusY = 1; //카메라 중심부터 오브젝트가 떨어진 위치
-    [SerializeField ]private Camera mainCam;
+    [SerializeField] private Camera mainCam;
 
     private Vector3 targetPosition; //카메라 목표 위치
     private bool isMove = false; //카메라 움직임 여부
@@ -40,12 +40,12 @@ public class StageManager : MonoBehaviour
                 isMove = true;
 
                 isDragging = false; // 오브젝트 클릭 시 드래그 상태 해제
-                if(hit.collider.gameObject.name == "Stage1")
+                if (hit.collider.gameObject.name == "Stage1")
                 {
                     StageUIManager.Instance.stage1.SetActive(true); // 스테이지 1 버튼 활성화
                     StageUIManager.Instance.stage2.SetActive(false); // 스테이지 1 버튼 활성화
                 }
-                else if(hit.collider.gameObject.name == "Stage2")
+                else if (hit.collider.gameObject.name == "Stage2")
                 {
                     StageUIManager.Instance.stage1.SetActive(false); // 스테이지 1 버튼 활성화
                     StageUIManager.Instance.stage2.SetActive(true); // 스테이지 2 버튼 활성화
@@ -54,7 +54,7 @@ public class StageManager : MonoBehaviour
             else
             {
                 // 빈 공간 클릭, 드래그 시작
-                
+
                 isDragging = true;
             }
 
@@ -92,6 +92,23 @@ public class StageManager : MonoBehaviour
             }
 
         }
+        GoBackBtn();
+
+
+
+    }
+    private void GoBackBtn()
+    {
+        if (StageUIManager.Instance.ClickBackButton && !isMove)
+        {
+            mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, new Vector3(0, 0, -10f), 6 * Time.deltaTime);
+            if (Vector3.Distance(mainCam.transform.position, new Vector3(0, 0, -10f)) < 0.1f)
+            {
+                StageUIManager.Instance.ClickBackButton = false;
+            }
+            CameraZoom(5);
+        }
+                Debug.Log(StageUIManager.Instance.ClickBackButton);
     }
 
     private void CameraZoom(float zoomScale)
