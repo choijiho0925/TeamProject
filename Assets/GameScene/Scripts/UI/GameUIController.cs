@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameUIController : MonoBehaviour
+public class GameUIController : MonoBehaviour // 싱글톤 너무 막쓰지말기
 {
     [Header("StartScene")]
     [SerializeField] private GameObject Option; // 옵션 UI
