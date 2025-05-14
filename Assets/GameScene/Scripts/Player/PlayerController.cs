@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed && IsGrounded())
         {
             isAttack = true;
+            StartCoroutine(AttackDelay(0.5f));
         }
     }
 
@@ -111,5 +112,11 @@ public class PlayerController : MonoBehaviour
         // 게임 오버 로직 실행
         GameManager.Instance.GameOver();
     }
+    private IEnumerator AttackDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isAttack = false;
+    }
+
 }
 
