@@ -126,7 +126,6 @@ public class PlayerController : MonoBehaviour
     {
         if(isAttack)
         {            
-            Debug.Log("공격");
             weaponCollider2D.enabled = true;
             StartCoroutine(AttackDelay(0.5f));
         }

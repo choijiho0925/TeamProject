@@ -107,8 +107,7 @@ public class StageManager : MonoBehaviour
                 StageUIManager.Instance.ClickBackButton = false;
             }
             CameraZoom(5);
-        }
-                Debug.Log(StageUIManager.Instance.ClickBackButton);
+        }                
     }
 
     private void CameraZoom(float zoomScale)

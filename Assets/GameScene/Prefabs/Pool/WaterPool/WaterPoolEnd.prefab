@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6258251477311504755}
   - component: {fileID: 5075576094958356255}
   - component: {fileID: 144211260657541770}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: WaterPoolEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}

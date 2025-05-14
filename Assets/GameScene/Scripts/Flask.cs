@@ -29,7 +29,6 @@ public class Flask : MonoBehaviour
             case ColorType.Red:
                 if (isPlayerF)
                 {
-                    Debug.Log("Åü»çÈÄ¸£°¡ »¡°­ ÇÃ¶ó½ºÅ©¸¦ È¹µæ");
                     if (GameManager.Instance.stageCount == 1) { StageInformation.Instance.stage1_1ItemCount++; }
                     else if (GameManager.Instance.stageCount == 2) { StageInformation.Instance.stage1_2ItemCount++; }
                     else if (GameManager.Instance.stageCount == 3) { StageInformation.Instance.stage2_1ItemCount++; }
@@ -41,7 +40,6 @@ public class Flask : MonoBehaviour
             case ColorType.Blue:
                 if (isPlayerW)
                 {
-                    Debug.Log("Å¸»çÈÄ¸£°¡ ÆÄ¶û ÇÃ¶ó½ºÅ©¸¦ È¹µæ");
                     if (GameManager.Instance.stageCount == 1) { StageInformation.Instance.stage1_1ItemCount++; }
                     else if (GameManager.Instance.stageCount == 2) { StageInformation.Instance.stage1_2ItemCount++; }
                     else if (GameManager.Instance.stageCount == 3) { StageInformation.Instance.stage2_1ItemCount++; }

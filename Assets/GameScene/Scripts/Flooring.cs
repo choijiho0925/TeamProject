@@ -24,7 +24,6 @@ public class Flooring : MonoBehaviour
             case ColorType.Red:
                 if (isPlayerW)
                 {
-                    Debug.Log("Å¸»çÈÄ¸£»ç¸Á");
                     controller.Dead();
                 }
                 break;
@@ -32,7 +31,6 @@ public class Flooring : MonoBehaviour
             case ColorType.Blue:
                 if (isPlayerF)
                 {
-                    Debug.Log("Åü»çÈÄ¸£»ç¸Á");
                     controller.Dead();
                 }
                 break;
@@ -40,7 +38,6 @@ public class Flooring : MonoBehaviour
             case ColorType.Green:
                 if (isPlayerF || isPlayerW)
                 {
-                    Debug.Log("°øÅë »ç¸Á");
                     controller.Dead();
                 }
                 break;

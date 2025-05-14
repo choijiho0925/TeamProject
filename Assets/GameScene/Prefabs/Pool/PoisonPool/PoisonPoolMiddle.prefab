@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8183057952224292261}
   - component: {fileID: 2965000897772302802}
   - component: {fileID: 572394870112560580}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: PoisonPoolMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
