@@ -4905,6 +4905,9 @@ MonoBehaviour:
   waterPlayerLayer:
     serializedVersion: 2
     m_Bits: 128
+  Default:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!50 &4336628466192385949
 Rigidbody2D:
   serializedVersion: 4
