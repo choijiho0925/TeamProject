@@ -22,10 +22,10 @@ public class Door : MonoBehaviour
             if (stayTimer > requiredStayTime)
             {
                 GameManager.Instance.opption1 = true; // 하트1 활성화
-                if (GameManager.Instance.stageCount == 1) { StageInformation.Instance.CheckStage1_1Time(); StageInformation.Instance.CheckStage1_1Item(); }
-                else if (GameManager.Instance.stageCount == 2) { StageInformation.Instance.CheckStage1_2Time(); StageInformation.Instance.CheckStage1_2Item(); }
-                else if (GameManager.Instance.stageCount == 3) { StageInformation.Instance.CheckStage2_1Time(); StageInformation.Instance.CheckStage2_1Item(); }
-                else if (GameManager.Instance.stageCount == 4) { StageInformation.Instance.CheckStage2_2Time(); StageInformation.Instance.CheckStage2_2Item(); }
+                if (GameManager.Instance.stageCount == 1) { StageInformation.Instance.CheckStage1_1Time(); StageInformation.Instance.CheckStage1_1Item(); StageInformation.Instance.stage1_1Clear = true; }
+                else if (GameManager.Instance.stageCount == 2) { StageInformation.Instance.CheckStage1_2Time(); StageInformation.Instance.CheckStage1_2Item(); StageInformation.Instance.stage1_2Clear = true; }
+                else if (GameManager.Instance.stageCount == 3) { StageInformation.Instance.CheckStage2_1Time(); StageInformation.Instance.CheckStage2_1Item(); StageInformation.Instance.stage2_1Clear = true; }
+                else if (GameManager.Instance.stageCount == 4) { StageInformation.Instance.CheckStage2_2Time(); StageInformation.Instance.CheckStage2_2Item(); StageInformation.Instance.stage2_2Clear = true; }
                 GameManager.Instance.Clear();// 일정시간 대기하면 게임 클리어
             }
         }
