@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -8,9 +9,13 @@ public class Projectile : MonoBehaviour
     public ColorType bulletType; //이넘으로 타입설정
     public LayerMask firePlayerLayer; // 퉁사후르레이어
     public LayerMask waterPlayerLayer;// 타사후르레이어
+    public LayerMask Default;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if ((Default.value & (1 << collision.gameObject.layer)) != 0)
+            return;
+
         controller = collision.GetComponent<PlayerController>();
         int objLayer = collision.gameObject.layer;
 
