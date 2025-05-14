@@ -649,6 +649,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1015032023203634904, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1241825637458926663}
+    - target: {fileID: 1015032023203634904, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Stage4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015032023203634904, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StageUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015032023203634904, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1964372887684899321, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -742,6 +758,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+--- !u!114 &1241825637458926663 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9147918762178607437, guid: 037963f9e9b706242a6ced30b6c673d2, type: 3}
+  m_PrefabInstance: {fileID: 1241825637458926662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1934968a8b93f04c9870262aec0c63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1497871302307016829 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 585345439898941169, guid: 9f0beb26644192444801a4e50aa9a2c1, type: 3}
