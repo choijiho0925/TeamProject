@@ -25,25 +25,23 @@ public class DestructibleWall : MonoBehaviour
         if ((firePlayerLayer.value & (1 << collision.gameObject.layer)) != 0)
         {
             Animator playerAnim = collision.GetComponent<Animator>();
-            if (playerAnim != null && playerAnim.GetBool("IsAttacking"))
-            {
+
                 hitCount++;
 
-                if(hitCount == 1)
-                {
-                    animator.SetTrigger("IsAttack");
-                } 
-                else if(hitCount == 2)
-                {
-                    rb.bodyType = RigidbodyType2D.Dynamic;
-                    Vector2 Direction = new Vector2(Random.Range(-1f,1f),Random.Range(0.5f,1f)).normalized;
-                    rb.AddForce(Direction*5f,ForceMode2D.Impulse);
-                    rb.AddTorque(-5f, ForceMode2D.Impulse);
-                    //아직 퉁사후르 공격이 없어서 테스트 안해봤음
-                    animator.SetTrigger("IsAttack");
-                    Destroy(this, 0.25f);
-                }
-            }    
+            if (hitCount == 1)
+            {
+                animator.SetTrigger("IsAttack");
+            }
+            else if (hitCount == 2)
+            {
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                Vector2 Direction = new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1f)).normalized;
+                rb.AddForce(Direction * 5f, ForceMode2D.Impulse);
+                rb.AddTorque(-5f, ForceMode2D.Impulse);
+                //아직 퉁사후르 공격이 없어서 테스트 안해봤음
+                animator.SetTrigger("IsAttack");
+                Destroy(this, 0.25f);
+            }
         }
     }
 }
