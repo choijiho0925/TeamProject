@@ -3279,6 +3279,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400561825835602127, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637924045657884685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911392305656733889, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3010224650997258541, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3290,6 +3302,18 @@ PrefabInstance:
     - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: moveSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: repeatMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: useSwitchControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187140851461088833, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalScale.x
@@ -3338,6 +3362,10 @@ PrefabInstance:
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454693069692975307, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3506,9 +3534,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400561825835602127, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637924045657884685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911392305656733889, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: moveSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: repeatMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: useSwitchControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187140851461088833, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalScale.x
@@ -3558,6 +3610,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8454693069692975307, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3583,9 +3639,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1400561825835602127, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637924045657884685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911392305656733889, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: moveSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: repeatMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: useSwitchControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187140851461088833, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalScale.x
@@ -3634,6 +3714,10 @@ PrefabInstance:
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454693069692975307, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3750,23 +3834,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400561825835602127, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1637924045657884685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2911392305656733889, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: repeatMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: useSwitchControl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4187140851461088833, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalScale.x
@@ -3814,7 +3906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454693069692975307, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6738,23 +6830,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400561825835602127, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1637924045657884685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2911392305656733889, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: repeatMoving
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297250715833017842, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
+      propertyPath: useSwitchControl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4187140851461088833, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4983021986602392685, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_LocalScale.x
@@ -6802,7 +6902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454693069692975307, guid: 8d842b7b9ebbb3f4dbd9720327aedc2e, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
