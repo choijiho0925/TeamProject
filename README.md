@@ -40,8 +40,14 @@ Fire&Water를 선택한 이유는 다양한 기믹의 퍼즐을 만들면서 유
 > https://www.figma.com/design/J5EUxytD9bjnXL2UUU5DYF/Untitled?node-id=0-1&p=f&t=QEQWae2jZVg2uSfG-0
 
 
-프로젝트 진행 중 다음과 같은 문제가 발생하였는데, 다음과 같이 처리하여 해결할 수 있었습니다.
+프로젝트 진행 중 다음과 같은 기능을 사용하였습니다. 또한 게임 제작 중 발생한 문제는 다음과 같이 처리하여 해결할 수 있었습니다.
 
-**여기에 트러블 슈팅 내용 입력**
+![1](https://github.com/user-attachments/assets/66523576-d9a6-4977-82cd-97920c42d003)
+![2](https://github.com/user-attachments/assets/9982eb73-fce7-4349-80f7-c35f16ff5f78)
+![3](https://github.com/user-attachments/assets/70738c87-95fa-43aa-bf5b-5477a55ea4a4)
+![4](https://github.com/user-attachments/assets/2c39cb32-9c5f-4f52-9855-c716f25adfda)
+![5](https://github.com/user-attachments/assets/945ab5bb-f9a6-440e-8240-f004b93eeb13)
+
+
 
 프로젝트는 이종민, 김건형, 이영민C, 최지호, 김지수A, 송도현 6명이서 제작하였습니다.
