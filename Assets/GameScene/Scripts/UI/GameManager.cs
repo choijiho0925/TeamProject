@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         StageInformation.Instance.UnLockStage();
+        Time.timeScale = 0; // 게임 일시 정지
     }
 
 
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
             }
             GameUIController.Instance.Result();
         }
+        Time.timeScale = 0; // 게임 일시 정지
     }
 }
 

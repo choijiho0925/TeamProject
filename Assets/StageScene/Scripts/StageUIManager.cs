@@ -39,7 +39,7 @@ public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
         GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
         GameManager.Instance.stageCount = 1; // 스테이지 카운트 설정
         StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
-        
+        Time.timeScale = 1; // 시간 스케일 초기화
     }
 
     public void Stage2()
@@ -59,7 +59,6 @@ public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
             GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
             GameManager.Instance.stageCount = 2; // 스테이지 카운트 설정
             StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
-            
         }
 
     }
@@ -81,7 +80,6 @@ public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
             GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
             GameManager.Instance.stageCount = 3; // 스테이지 카운트 설정
             StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
-            
         }
     }
 
@@ -101,8 +99,7 @@ public class StageUIManager : MonoBehaviour // 싱글톤 너무 막쓰지말기
             GameUIController.Instance.timeUI.SetActive(true); // 시간 UI
             GameUIController.Instance.restartButton.SetActive(true); // 재시작 버튼
             GameManager.Instance.stageCount = 3; // 스테이지 카운트 설정
-            StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화
-            
+            StageInformation.Instance.ResetItemCount(); // 아이템 카운트 초기화            
         }
     }
     public void GobackNoReLoad()
