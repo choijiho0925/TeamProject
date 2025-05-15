@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public bool isSuccess = false;
     public bool isResult = false; // 결과창 활성화 여부
 
+    public bool isSceneChanging = false;
+
     StageInformation stageInformation;
 
     private void Awake()
@@ -110,5 +112,21 @@ public class GameManager : MonoBehaviour
         }
         Time.timeScale = 0; // 게임 일시 정지
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    private void OnSceneUnloaded(Scene current)
+    {
+        isSceneChanging = true;
+    }
+
 }
 

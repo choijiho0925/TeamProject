@@ -80,6 +80,8 @@ public class MovingPlatform : MonoBehaviour, IActivatable
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (GameManager.Instance.isSceneChanging) return;
+
         if (other.CompareTag("Player"))
         {
             // 떨어질 때 부모 해제
