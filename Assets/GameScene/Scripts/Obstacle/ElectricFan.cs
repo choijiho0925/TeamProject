@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ElectricFan : MonoBehaviour, IActivatable
+{
+    public float liftForce = 10f; //ø√∑¡∫∏≥æ »˚ ¿ŒΩ∫∆Â≈Õ√¢ø°º≠ º≥¡§
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Rigidbody2D rb = collision.attachedRigidbody;
+        if (rb != null)
+        {
+            Vector2 direction = transform.up;
+            rb.AddForce(direction * liftForce, ForceMode2D.Force);// liftForce∏∏≈≠ »˚¿ª ¡‹
+        }
+    }
+    public void Activate()
+    {
+        liftForce = 0f;
+    }
+
+    public void Deactivate()
+    {       
+    }
+}
