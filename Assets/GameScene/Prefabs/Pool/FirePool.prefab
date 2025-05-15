@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7617c75d481c5f142925d976da37b742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
+  count: 1
+  onePrefab: {fileID: 7006147559616536009, guid: aafa09d9519a92848900840f2582c577, type: 3}
   startPrefab: {fileID: 3566907600275957990, guid: 42a6a8d8c0cd39a45a6f6d382f301035, type: 3}
   middlePrefab: {fileID: 7006147559616536009, guid: af23a9bd8abab4d4a859278839bf7b4a, type: 3}
   endPrefab: {fileID: 8473830724746610376, guid: feb6d35e008dce64eab02172af06babe, type: 3}
@@ -99,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 80
-  m_Sprite: {fileID: 21300000, guid: e4320ef80e583854a8c0274240bf751d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf6e63f7ac7c6df4885a987cbaeff78b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
